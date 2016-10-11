@@ -17,4 +17,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/css', 'HomeController@css');
 Route::get('/home', 'HomeController@index');

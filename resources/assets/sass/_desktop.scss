@@ -1,0 +1,13 @@
+@media screen and (min-width: 992px) {
+  body {
+    > .navbar {
+      width: 20vw;
+      display: inline-block;
+    }
+    > .container {
+      width: 79vw;
+      display: inline-block;
+    }
+  }
+
+}
