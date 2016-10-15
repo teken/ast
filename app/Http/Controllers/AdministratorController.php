@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AdministratorController extends Controller
 {
-    public function index(Requesr $request) {
+    public function index(Request $request) {
 
       return view('admin.index');
     }
