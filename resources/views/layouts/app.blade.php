@@ -47,11 +47,6 @@
                             </a>
                         </li>
                     @endif
-                    @forelse (Auth::user()->modules() as $module)
-                        <li>{{ $module->title }}</li>
-                    @empty
-                        <li>You dont seem to subscribed to any modules</li>
-                    @endforelse
                     <li>
                         <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
