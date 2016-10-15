@@ -21,4 +21,8 @@ nav.navbar {
   .navbar-nav > li > a {
     color: $font-primary-colour;
   }
+
+  .search input {
+    border-color: $font-primary-colour;
+  }
 }
