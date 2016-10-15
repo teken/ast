@@ -33,7 +33,34 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    &nbsp;
+                  <li>
+                    <input type="text" placeholder="Search..." />
+                  </li>
+                  @if (Auth::guest())
+                      <li><a href="{{ url('/login') }}">Login</a></li>
+                      <li><a href="{{ url('/register') }}">Register</a></li>
+                  @else
+                    @if (Auth::user()->administrator)
+                        <li>
+                            <a href="{{ url('/admin') }}">
+                                Administrator Area
+                            </a>
+                        </li>
+                    @endif
+                    @forelse (Auth::user()->modules() as $module)
+                        <li>{{ $module->title }}</li>
+                    @empty
+                        <li>You dont seem to subscribed to any modules</li>
+                    @endforelse
+                    <li>
+                        <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                  @endif
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
