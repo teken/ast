@@ -18,7 +18,7 @@ class ResourceController extends Controller
         return null;
     });
     $scss->setFormatter('Leafo\ScssPhp\Formatter\Crunched');
-    $css = $scss->compile('@import "app.scss";');
+    $css = $scss->compile('@import "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss"; @import "app.scss";');
     return response($css, 200)->withHeaders(['Content-Type'=> 'text/css', 'Cache-control'=> 'no-cache']); //	max-age = seconds
   }
 }
