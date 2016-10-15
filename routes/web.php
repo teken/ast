@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//home
+Route::get('/', 'HomeController@index');
+Route::get('/home', function () { return  redirect()->route('/'); });
 
+//auth
 Auth::routes();
 
-Route::get('/css', 'ResourceController@css');
-Route::get('/home', 'HomeController@index');
-
+//admin
 Route::get('/admin', 'AdministratorController@index');
+
+//resources
+Route::get('/css', 'ResourceController@css');

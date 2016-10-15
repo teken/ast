@@ -17,6 +17,6 @@ class AdminCheck
     public function handle($request, Closure $next)
     {
         if (Auth::user() && Auth::user()->administrator) return $next($request);
-        return redirect('home');
+        return redirect('/');
     }
 }
