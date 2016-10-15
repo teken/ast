@@ -18,6 +18,6 @@ class ResourceController extends Controller
     });
     $scss->setFormatter('Leafo\ScssPhp\Formatter\Crunched');
     $css = $scss->compile('@import "app.scss";');
-    return response($css, 200)->header('Content-Type', 'text/css');
+    return response($css, 200)->withHeaders(['Content-Type'=> 'text/css', 'Cache-control'=> 'no-cache']); //	max-age = seconds
   }
 }
