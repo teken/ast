@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'M2010336\'s Advanced Server-side Technology Project',
+    'name' => 'MASTP',
 
     /*
     |--------------------------------------------------------------------------
