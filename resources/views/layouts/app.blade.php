@@ -58,20 +58,17 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                              @if (Auth::user())
+                                @if (Auth::user()->administrator)
+                                    <li>
+                                        <a href="{{ url('/admin') }}">
+                                            Administrator Area
+                                        </a>
+                                    </li>
+                                @endif
                                 <li>
-                                  <a href="{{ url('/admin') }}">
-                                      Administrator Area
-                                  </a>
-                                </li>
-                              @endif
-                                <li>
-                                    <a href="{{ url('/logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                    <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>
-
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
