@@ -1,9 +1,24 @@
-$primary: #cc181e;
-/*$secondary: ;
-$tertiary: ;
+$primary-colour: #cc181e;
+$secondary-colour: #8EC63F;
+$tertiary-colour: #009DA6;
 
-$font:;*/
+$background-colour: #333;
+
+$font-primary-colour: #333333;
+$font-secondary-colour: #121212;
+
+body {
+  background-color: $background-colour; 
+}
 
 nav.navbar {
-  background-color: $primary;
+  background-color: $primary-colour;
+
+  .navbar-brand {
+    color: $font-primary-colour;
+  }
+
+  .navbar-nav > li > a {
+    color: $font-primary-colour;
+  }
 }
