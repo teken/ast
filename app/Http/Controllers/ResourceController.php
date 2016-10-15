@@ -12,9 +12,10 @@ class ResourceController extends Controller
     $css;
     $scss = new Compiler();
     $scss->addImportPath(function($path) {
-      $basePath = base_path("resources/assets/sass/");
-        if (!file_exists($basePath.$path)) return null;
-        return $basePath.$path;
+        $basePath = base_path("resources/assets/sass/");
+        if (file_exists($basePath.$path)) return $basePath.$path;
+        if (file_exists($path)) return $path;
+        return null;
     });
     $scss->setFormatter('Leafo\ScssPhp\Formatter\Crunched');
     $css = $scss->compile('@import "app.scss";');
