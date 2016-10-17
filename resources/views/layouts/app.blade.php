@@ -36,10 +36,7 @@
                   <li class="search">
                     <input type="text" placeholder="Search..." />
                   </li>
-                  @if (Auth::guest())
-                      <li><a href="{{ url('/login') }}">Login</a></li>
-                      <li><a href="{{ url('/register') }}">Register</a></li>
-                  @else
+                  @if (!Auth::guest())
                     @if (Auth::user()->administrator)
                         <li>
                             <a href="{{ url('/admin') }}">
@@ -52,9 +49,16 @@
                     <li><a href="{{ url('/my/modules') }}">My Modules</a></li>
                     <li><a href="{{ url('/my/videos') }}">My Videos</a></li>
                     <li><a href="{{ url('/my/favourites') }}">My Favourites</a></li>
-                    <li class="separator"></li>
+                  @endif
+                  <li class="separator"></li>
+                  <li><a href="{{ url('/courses') }}">All Courses</a></li>
+                  <li><a href="{{ url('/modules') }}">All Modules</a></li>
+                  <li><a href="{{ url('/videos') }}">All Videos</a></li>
 
-
+                  @if(Auth::guest())
+                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <li><a href="{{ url('/register') }}">Register</a></li>
+                  @else
                     <li>
                         <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
@@ -64,10 +68,6 @@
                         </form>
                     </li>
                   @endif
-                  <li class="separator"></li>
-                  <li><a href="{{ url('/courses') }}">All Courses</a></li>
-                  <li><a href="{{ url('/modules') }}">All Modules</a></li>
-                  <li><a href="{{ url('/videos') }}">All Videos</a></li>
                 </ul>
             </div>
         </div>
