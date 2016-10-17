@@ -19,7 +19,38 @@ Route::get('/home', function () { return  redirect('/'); });
 Auth::routes();
 
 //admin
-Route::get('/admin', 'AdministratorController@index');
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin', 'AdministratorController@index');
+
+    Route::match(['put', 'post'], '/courses/{slug?}', 'CourseController@store');
+    Route::delete('/courses/{slug}', 'CourseController@delete');
+
+    Route::match(['put', 'post'], '/modules/{slug?}', 'ModuleController@store');
+    Route::delete('/modules/{slug}', 'ModuleController@delete');
+});
+
+//users
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/my/courses', 'CourseController@user');
+    Route::get('/my/modules', 'ModuleController@user');
+
+    Route::get('/my/videos', 'VideoController@user');
+    Route::match(['put', 'post'] ,'/my/videos/{slug?}', 'VideoController@store');
+    Route::delete('/my/videos/{slug}', 'VideoController@delete');
+
+    Route::get('/my/favorites', 'FavoriteController@index');
+    Route::put('/my/favorites/{slug}', 'FavoriteController@store');
+});
 
 //resources
 Route::get('/css', 'ResourceController@css');
+
+//not auth-ed
+Route::get('/courses', 'CourseController@index');
+Route::get('/courses/{slug}', 'CourseController@details');
+
+Route::get('/modules', 'ModuleController@index');
+Route::get('/modules/{slug}', 'ModuleController@details');
+
+Route::get('/videos', 'VideoController@index');
+Route::get('/videos/{slug}', 'VideoController@details');

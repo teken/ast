@@ -12,7 +12,7 @@ class Video extends Model
     protected $table = 'videos';
 
     protected $fillable = [
-        'user_id', 'url', 'title', 'description', 'tags'
+        'user_id', 'url', 'title', 'description', 'tags', 'slug'
     ];
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
