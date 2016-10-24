@@ -52,7 +52,7 @@ class CourseController extends Controller
       $course->description = $request->input('description');
       $course->slug = str_slug($course->title);
 
-      $course->modules()->attach($request->input('moduleids'))->get());
+      $course->modules()->attach($request->input('moduleids'));
 
       $course->save();
 
