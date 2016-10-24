@@ -36,6 +36,8 @@ Route::group(['middleware' => 'admin'], function () {
 //users
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/my/courses', 'CourseController@user');
+    Route::get('/courses/{slug}/subscribe', 'CourseController@subscribe');
+    Route::get('/courses/{slug}/unsubscribe', 'CourseController@unsubscribe');
 
     Route::get('/my/videos', 'VideoController@user');
     Route::match(['put', 'post'] ,'/my/videos/{slug?}', 'VideoController@store');

@@ -15,7 +15,8 @@
     @endif
     @foreach($courses as $course)
         <div class="row course">
-          <div class="title">{{$course->title}}</div>
+          <div class="title"><a url="{{url('/courses/'.$course->slug)}}">{{$course->title}}</a></div>
+          <div class="modules"><div>
         </div>
     @endforeach
 @endsection
