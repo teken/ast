@@ -23,7 +23,7 @@ class CourseController extends Controller
 
     public function details(Request $request, $slug)
     {
-      $course = Course::where('slug', $slug)->firstOrFail();
+      $course = Course::with('modules.videos')->where('slug', $slug)->firstOrFail();
       return view('course.details', ['course' => $course]);
     }
 
