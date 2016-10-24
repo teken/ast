@@ -23,7 +23,6 @@
                           <option>Sorry there are no modules that i can find.</option>
                         @forelse
                       </select>
-                      <textarea name="description" placeholder="Some text...">{{$module->description}}</textarea>
                     </div>
                     <div class="form-group">
                       <input type="submit" value="Save" class="pull-right btn btn-primary" />
