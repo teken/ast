@@ -51,9 +51,7 @@ class CourseController extends Controller
       $course->title = $request->input('title');
       $course->description = $request->input('description');
       $course->slug = str_slug($course->title);
-
-      dump($request->all());
-
+      $courses->modules() = Module::whereIn('slug', $request->input('moduleslugs'))->get();
 
       $course->save();
 
