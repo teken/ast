@@ -12,13 +12,13 @@ class CourseController extends Controller
 {
     public function index(Request $request) {
       $courses = Course::get();
-      return view('courses.index', ['courses' => $courses]);
+      return view('course.index', ['courses' => $courses]);
     }
 
     public function user(Request $request) {
       $user = Auth::user();
       $user->load('courses');
-      return view('courses.index', ['courses' => $user->courses()]);
+      return view('course.index', ['courses' => $user->courses()]);
     }
 
     public function details(Request $request, $slug)
