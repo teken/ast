@@ -24,7 +24,7 @@ class CourseController extends Controller
     public function details(Request $request, $slug)
     {
       $course = Course::where('slug', $slug)->get();
-      return view('course.details', ['course' => $course])
+      return view('course.details', ['course' => $course]);
     }
 
     public function store() {

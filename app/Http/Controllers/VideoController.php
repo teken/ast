@@ -11,7 +11,7 @@ class VideoController extends Controller
   public function index(Request $request)
   {
     $videos = Video::get();
-    return view('video.index', ['videos' => $videos])
+    return view('video.index', ['videos' => $videos]);
   }
 
   public function user(Request $request) {
@@ -23,7 +23,7 @@ class VideoController extends Controller
   public function details(Request $request, $slug)
   {
     $video = Video::where('slug', $slug)->get();
-    return view('video.details', ['video' => $video])
+    return view('video.details', ['video' => $video]);
   }
 
   public function store() {
