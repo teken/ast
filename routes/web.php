@@ -22,9 +22,13 @@ Auth::routes();
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin', 'AdministratorController@index');
 
+    Route::get('/courses/new', 'CourseController@new');
+    Route::get('/courses/{slug}/edit', 'CourseController@edit');
     Route::match(['put', 'post'], '/courses/{slug?}', 'CourseController@store');
     Route::delete('/courses/{slug}', 'CourseController@delete');
 
+    Route::get('/modules/new', 'ModuleController@new');
+    Route::get('/modules/{slug}/edit', 'ModuleController@edit');
     Route::match(['put', 'post'], '/modules/{slug?}', 'ModuleController@store');
     Route::delete('/modules/{slug}', 'ModuleController@delete');
 });

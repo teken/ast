@@ -27,8 +27,31 @@ class CourseController extends Controller
       return view('course.details', ['course' => $course]);
     }
 
-    public function store() {
+    public function new() {
+      $course = new Course();
+      return view('course.edit', ['course' => $course, 'method' => 'PUT']);
+    }
 
+    public function edit($slug) {
+      $course = Course::where('slug', $slug)->get();
+      return view('course.edit', ['course' => $course, , 'method' => 'POST']);
+    }
+
+    public function store(Request $request) {
+      $course;
+      if ($request->isMethod('post')) {
+        $course = Course::findOrFail($request->input('id'));
+      } else if ($request->isMethod('put')) {
+        $course = new Course();
+      }
+
+      $course->title = $request->input('title');
+      $course->description = $request->input('description');
+      $course->slug =  str_slug($course->title);
+
+      $course->save();
+      
+      return redirect()->action('CourseController@index');
     }
 
     public function delete(Request $request, $slug) {
