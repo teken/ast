@@ -17,6 +17,11 @@
       <div class="title">{{$module->title}}</div>
       <div class="description">{{$module->description}}</div>
 
-      @include('video.bymodule', ['modules' => $module->modules()])
+      <div class="courese">{{$module->description}}</div>
+      <ul>
+        @foreach($module->courses() as $course)
+            <li><a href="{{url('/courses/'.$course->slug)}}">$course->title</a></li>
+        @endforeach
+      </ul>
     </div>
 @endsection
