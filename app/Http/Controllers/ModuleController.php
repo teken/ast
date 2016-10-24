@@ -16,15 +16,38 @@ class ModuleController extends Controller
 
   public function details(Request $request, $slug)
   {
-    $module = Module::where('slug', $slug)->get();
+    $module = Module::with('videos')->where('slug', $slug)->firstOrFail();
     return view('module.details', ['module' => $module]);
   }
 
-  public function store() {
-
+  public function new() {
+    $module = new Module();
+    return view('module.edit', ['module' => $module, 'method' => 'PUT']);
   }
 
-  public function delete() {
+  public function edit($slug) {
+    $module = Module::where('slug', $slug)->firstOrFail();
+    return view('module.edit', ['module' => $module, 'method' => 'POST']);
+  }
 
+  public function store(Request $request) {
+    $module;
+    if ($request->isMethod('post')) {
+      $module = Module::findOrFail($request->input('id'));
+    } else if ($request->isMethod('put')) {
+      $module = new Module();
+    }
+
+    $module->title = $request->input('title');
+    $module->description = $request->input('description');
+    $module->slug =  str_slug($module->title);
+
+    $module->save();
+
+    return redirect()->action('ModuleController@index');
+  }
+
+  public function delete(Request $request, $slug) {
+    Module::where('slug', $slug)->delete();
   }
 }

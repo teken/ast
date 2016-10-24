@@ -11,7 +11,7 @@ use Auth;
 class CourseController extends Controller
 {
     public function index(Request $request) {
-      $courses = Course::get();
+      $courses = Course::with('modules')->get();
       return view('course.index', ['courses' => $courses]);
     }
 

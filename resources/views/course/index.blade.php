@@ -16,7 +16,13 @@
     @foreach($courses as $course)
         <div class="row course">
           <div class="title"><a href="{{url('/courses/'.$course->slug)}}">{{$course->title}}</a></div>
-          <div class="modules"><div>
+          <div class="modules">
+            <ul>
+              @foreach($course->modules() as $module)
+                  <li><a href="{{url('/modules/'.$module->slug)}}">$module->title</a></li>
+              @endforeach
+            </ul>
+          <div>
         </div>
     @endforeach
 @endsection

@@ -8,17 +8,15 @@
               <i class="glyphicon glyphicon-cog"></i><span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-              <li><a href="{{url('/modules/new')}}">Create Module</a></li>
+              <li><a href="{{url('/modules/'.$module->slug.'/edit')}}">Edit Module</a></li>
             </ul>
           </div>
         </div>
     @endif
-    @foreach($modules as $module)
-        <div class="row module">
-          <div class="title"><a href="{{url('/modules/'.$module->slug)}}">{{$module->title}}</a></div>
-          <div class="videos">
-              @each('video.box', $module->videos(), 'video')
-          <div>
-        </div>
-    @endforeach
+    <div class="module details">
+      <div class="title">{{$module->title}}</div>
+      <div class="description">{{$module->description}}</div>
+
+      @include('video.bymodule', ['modules' => $module->modules()])
+    </div>
 @endsection
