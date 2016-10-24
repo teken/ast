@@ -22,7 +22,7 @@
                   <li><a href="{{url('/modules/'.$module->slug)}}">$module->title</a></li>
               @endforeach
             </ul>
-          <div>
+          </div>
         </div>
     @endforeach
 @endsection

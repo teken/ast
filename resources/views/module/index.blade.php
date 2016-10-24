@@ -18,7 +18,7 @@
           <div class="title"><a href="{{url('/modules/'.$module->slug)}}">{{$module->title}}</a></div>
           <div class="videos">
               @each('video.box', $module->videos(), 'video')
-          <div>
+          </div>
         </div>
     @endforeach
 @endsection

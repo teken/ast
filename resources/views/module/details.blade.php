@@ -19,9 +19,9 @@
 
       <div class="courses">
         <ul>
-          @foreach($module->courses() as $course)
-              <li><a href="{{url('/courses/'.$course->slug)}}">$course->title</a></li>
-          @endforeach
+            @foreach($module->courses() as $course)
+                <li><a href="{{url('/courses/'.$course->slug)}}">$course->title</a></li>
+            @endforeach
         </ul>
       </div>
     </div>
