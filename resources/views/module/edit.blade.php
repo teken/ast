@@ -21,7 +21,7 @@
                           <option value="{{$course->id}}">{{$course->title}}</option>
                         @empty
                           <option>Sorry there are no modules that i can find.</option>
-                        @forelse
+                        @endforelse
                       </select>
                     </div>
                     <div class="form-group">
