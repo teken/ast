@@ -50,7 +50,10 @@ class CourseController extends Controller
 
       $course->title = $request->input('title');
       $course->description = $request->input('description');
-      $course->slug =  str_slug($course->title);
+      $course->slug = str_slug($course->title);
+
+      dump($request->all());
+
 
       $course->save();
 

@@ -17,11 +17,12 @@
       <div class="title">{{$module->title}}</div>
       <div class="description">{{$module->description}}</div>
 
-      <div class="courese">{{$module->description}}</div>
-      <ul>
-        @foreach($module->courses() as $course)
-            <li><a href="{{url('/courses/'.$course->slug)}}">$course->title</a></li>
-        @endforeach
-      </ul>
+      <div class="courses">
+        <ul>
+          @foreach($module->courses() as $course)
+              <li><a href="{{url('/courses/'.$course->slug)}}">$course->title</a></li>
+          @endforeach
+        </ul>
+      </div>
     </div>
 @endsection
