@@ -16,11 +16,11 @@
                       <textarea name="description" placeholder="Some text...">{{$module->description}}</textarea>
                     </div>
                     <div class="form-group">
-                      <select multiple value="courseids">
+                      <select multiple value="courseslugs">
                         @forelse($courses as $course)
-                          <option value="{{$course->id}}">{{$course->title}}</option>
+                          <option value="{{$course->slug}}">{{$course->title}}</option>
                         @empty
-                          <option>Sorry there are no modules that i can find.</option>
+                          <option>Sorry there are no courses that i can find.</option>
                         @endforelse
                       </select>
                     </div>
