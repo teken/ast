@@ -47,7 +47,7 @@ class ModuleController extends Controller
     $module->description = $request->input('description');
     $module->slug = str_slug($module->title);
 
-    $module->courses()->saveMany(Course::whereIn('slug', $request->input('courseslugs'))->get());
+    $module->courses()->attach($request->input('courseids'));
 
     $module->save();
 

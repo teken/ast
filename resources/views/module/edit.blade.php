@@ -16,9 +16,9 @@
                       <textarea name="description" placeholder="Some text...">{{$module->description}}</textarea>
                     </div>
                     <div class="form-group">
-                      <select multiple name="courseslugs[]">
+                      <select multiple name="courseids[]">
                         @forelse($courses as $course)
-                          <option value="{{$course->slug}}">{{$course->title}}</option>
+                          <option value="{{$course->id}}">{{$course->title}}</option>
                         @empty
                           <option>Sorry there are no courses that i can find.</option>
                         @endforelse
