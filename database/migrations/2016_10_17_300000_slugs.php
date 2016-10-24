@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCourseModulesTable extends Migration
+class Slugs extends Migration
 {
     /**
      * Run the migrations.
