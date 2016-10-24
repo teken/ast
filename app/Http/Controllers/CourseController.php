@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Course;
+use App\Module;
 use Auth;
 
 class CourseController extends Controller
@@ -29,12 +30,14 @@ class CourseController extends Controller
 
     public function new() {
       $course = new Course();
-      return view('course.edit', ['course' => $course, 'method' => 'PUT']);
+      $modules = Module::get();
+      return view('course.edit', ['course' => $course, 'modules' => $modules, 'method' => 'PUT']);
     }
 
     public function edit($slug) {
       $course = Course::where('slug', $slug)->firstOrFail();
-      return view('course.edit', ['course' => $course, 'method' => 'POST']);
+      $modules = Module::get();
+      return view('course.edit', ['course' => $course, 'modules' => $modules, 'method' => 'POST']);
     }
 
     public function store(Request $request) {

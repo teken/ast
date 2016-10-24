@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Course;
+use App\Module;
+use Auth;
 
 class ModuleController extends Controller
 {
@@ -22,12 +25,14 @@ class ModuleController extends Controller
 
   public function new() {
     $module = new Module();
-    return view('module.edit', ['module' => $module, 'method' => 'PUT']);
+    $courses = Course::get();
+    return view('module.edit', ['module' => $module, 'courses' => $courses, 'method' => 'PUT']);
   }
 
   public function edit($slug) {
     $module = Module::where('slug', $slug)->firstOrFail();
-    return view('module.edit', ['module' => $module, 'method' => 'POST']);
+    $courses = Course::get();
+    return view('module.edit', ['module' => $module, 'courses' => $courses, 'method' => 'POST']);
   }
 
   public function store(Request $request) {
