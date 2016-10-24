@@ -15,7 +15,7 @@ class Course extends Model
     protected $dates = ['created_at', 'updated_at'];
 
     public function modules() {
-       return $this->belongsToMany('App\Modules', 'coursemodules');
+       return $this->belongsToMany('App\Module', 'coursemodules');
     }
 
     public function users() {
