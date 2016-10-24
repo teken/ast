@@ -23,7 +23,7 @@ class CourseController extends Controller
 
     public function details(Request $request, $slug)
     {
-      $course = Course::where('slug', $slug)->get();
+      $course = Course::where('slug', $slug)->firstOrFail();
       return view('course.details', ['course' => $course]);
     }
 
@@ -33,7 +33,7 @@ class CourseController extends Controller
     }
 
     public function edit($slug) {
-      $course = Course::where('slug', $slug)->get();
+      $course = Course::where('slug', $slug)->firstOrFail();
       return view('course.edit', ['course' => $course, 'method' => 'POST']);
     }
 
