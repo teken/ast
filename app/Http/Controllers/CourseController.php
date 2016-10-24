@@ -34,7 +34,7 @@ class CourseController extends Controller
 
     public function edit($slug) {
       $course = Course::where('slug', $slug)->get();
-      return view('course.edit', ['course' => $course, , 'method' => 'POST']);
+      return view('course.edit', ['course' => $course, 'method' => 'POST']);
     }
 
     public function store(Request $request) {
@@ -50,7 +50,7 @@ class CourseController extends Controller
       $course->slug =  str_slug($course->title);
 
       $course->save();
-      
+
       return redirect()->action('CourseController@index');
     }
 
