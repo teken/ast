@@ -17,10 +17,12 @@
       <div class="title">{{$course->title}}</div>
       <div class="description">{{$course->description}}</div>
       <div class="actions">
-        <a class="btn btn-default" href="{{url('/courses/'.$course->slug.'/subscribe')}}">Subscribe</a>
-        <a class="btn btn-default" href="{{url('/courses/'.$course->slug.'/unsubscribe')}}">Unsubscribe</a>
+        @if(Auth::user()->favorites()-contains($course))
+          <a class="btn btn-default unsubscribe" href="{{url('/courses/'.$course->slug.'/unsubscribe')}}">Unsubscribe</a>
+        @else
+          <a class="btn btn-default subscribe" href="{{url('/courses/'.$course->slug.'/subscribe')}}">Subscribe</a>
+        @endif
       </div>
-
       @include('video.bymodule', ['modules' => $course->modules()])
     </div>
 @endsection
