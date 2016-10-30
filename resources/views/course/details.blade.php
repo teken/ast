@@ -17,7 +17,7 @@
       <div class="title">{{$course->title}}</div>
       <div class="description">{{$course->description}}</div>
       <div class="actions">
-        @if(Auth::user()->favorites()->where('id', $course->id)->count() < 0)
+        @if(Auth::user()->courses()->where('id', $course->id)->count() < 0)
           <a class="btn btn-default unsubscribe" href="{{url("/courses/{$course->slug}/unsubscribe")}}">Unsubscribe</a>
         @else
           <a class="btn btn-default subscribe" href="{{url("/courses/{$course->slug}/subscribe")}}">Subscribe</a>
