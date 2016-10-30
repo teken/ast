@@ -15,7 +15,7 @@ class FixModuleVideoColumns extends Migration
     {
       Schema::table('modulevideos', function ($table) {
         $table->dropColumn('user_id');
-        $table->integer('module_id')->unsigned();
+        //$table->integer('module_id')->unsigned();
         $table->foreign('module_id')->references('id')->on('modules');
       });
     }
@@ -28,7 +28,7 @@ class FixModuleVideoColumns extends Migration
     public function down()
     {
       Schema::table('modulevideos', function ($table) {
-        $table->dropColumn('module_id');
+        //$table->dropColumn('module_id');
         $table->integer('user_id')->unsigned();
         $table->foreign('user_id')->references('id')->on('users');
       });
