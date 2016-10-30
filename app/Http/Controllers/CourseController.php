@@ -66,7 +66,7 @@ class CourseController extends Controller
     public function subscribe(Request $request, $slug) {
       $course = Course::where('slug', $slug)->firstOrFail();
       $user = Auth::user();
-      $user->courses()->attach($course->id);
+      $user->courses()->syncWithoutDetaching([$course->id]);
       return redirect()->action('CourseController@details', ['slug' => $course->slug]);
     }
 
