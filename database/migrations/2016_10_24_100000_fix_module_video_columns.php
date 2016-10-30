@@ -14,6 +14,7 @@ class FixModuleVideoColumns extends Migration
     public function up()
     {
       Schema::table('modulevideos', function ($table) {
+        $table->dropForeign('modulevideos_user_id_foreign');
         $table->dropColumn('user_id');
         //$table->integer('module_id')->unsigned();
         $table->foreign('module_id')->references('id')->on('modules');
