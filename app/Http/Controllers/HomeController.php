@@ -9,7 +9,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $modules = Module::with('videos')->get();
-        return view('video.bymodule', ['modules' => $modules]);
+        return view('home');
     }
 }
