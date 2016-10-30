@@ -45,10 +45,9 @@
                         </li>
                         <li class="separator"></li>
                     @endif
-                    <li><a href="{{ url('/my/courses') }}">My Courses</a></li>
-                    {{--<li><a href="{{ url('/my/modules') }}">My Modules</a></li>--}}
+                    <li><a href="{{ url('/courses/subscriptions') }}">Course Subscriptions</a></li>
+                    <li><a href="{{ url('/favourites') }}">Favourites</a></li>
                     <li><a href="{{ url('/my/videos') }}">My Videos</a></li>
-                    <li><a href="{{ url('/my/favourites') }}">My Favourites</a></li>
                   @endif
                   <li class="separator"></li>
                   <li><a href="{{ url('/courses') }}">All Courses</a></li>

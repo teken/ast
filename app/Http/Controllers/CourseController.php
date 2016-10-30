@@ -52,7 +52,7 @@ class CourseController extends Controller
       $course->description = $request->input('description');
       $course->slug = str_slug($course->title);
 
-      $course->modules()->attach($request->input('moduleids'));
+      $course->modules()->sync($request->input('moduleids'));
 
       $course->save();
 
@@ -61,5 +61,19 @@ class CourseController extends Controller
 
     public function delete(Request $request, $slug) {
       Course::where('slug', $slug)->delete();
+    }
+
+    public function subscribe(Request $request, $slug) {
+      $course = Course::where('slug', $slug)->firstOrFail();
+      $user = Auth::user();
+      $user->courses()->attach($course->id);
+      return redirect()->action('CourseController@details', ['slug' => $course->slug]);
+    }
+
+    public function unsubscribe(Request $request, $slug) {
+      $course = Course::where('slug', $slug)->firstOrFail();
+      $user = Auth::user();
+      $user->courses()->detach($course->id);
+      return redirect()->action('CourseController@details', ['slug' => $course->slug]);
     }
 }

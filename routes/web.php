@@ -35,7 +35,7 @@ Route::group(['middleware' => 'admin'], function () {
 
 //users
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/my/courses', 'CourseController@user');
+    Route::get('/courses/subscriptions', 'CourseController@user');
     Route::get('/courses/{slug}/subscribe', 'CourseController@subscribe');
     Route::get('/courses/{slug}/unsubscribe', 'CourseController@unsubscribe');
 
@@ -43,8 +43,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::match(['put', 'post'] ,'/my/videos/{slug?}', 'VideoController@store');
     Route::delete('/my/videos/{slug}', 'VideoController@delete');
 
-    Route::get('/my/favorites', 'FavoriteController@index');
-    Route::put('/my/favorites/{slug}', 'FavoriteController@store');
+    Route::get('/favorites', 'FavoriteController@index');
+    Route::put('/favorites/{slug}', 'FavoriteController@store');
 });
 
 //resources

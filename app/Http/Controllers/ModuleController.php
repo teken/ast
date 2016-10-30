@@ -47,7 +47,7 @@ class ModuleController extends Controller
     $module->description = $request->input('description');
     $module->slug = str_slug($module->title);
 
-    $module->courses()->attach($request->input('courseids'));
+    $module->courses()->sync($request->input('courseids'));
 
     $module->save();
 
