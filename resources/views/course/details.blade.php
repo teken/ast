@@ -17,7 +17,7 @@
       <div class="title">{{$course->title}}</div>
       <div class="description">{{$course->description}}</div>
       <div class="actions">
-        @if(Auth::user()->with('courses')->courses()->pluck('id')->contains($course->id))
+        @if(!Auth::guest() and  Auth::user()->courses()->pluck('id')->contains($course->id))
           <a class="btn btn-default unsubscribe" href="{{url("/courses/{$course->slug}/unsubscribe")}}">Unsubscribe</a>
         @else
           <a class="btn btn-default subscribe" href="{{url("/courses/{$course->slug}/subscribe")}}">Subscribe</a>
