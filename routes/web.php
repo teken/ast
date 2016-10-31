@@ -43,9 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::match(['put', 'post'] ,'/my/videos/{slug?}', 'VideoController@store');
     Route::delete('/my/videos/{slug}', 'VideoController@delete');
 
-    Route::get('/favourites', 'FavoriteController@index');
-    Route::put('/favourites/{slug}', 'FavoriteController@store');
-    Route::delete('/favourites/{slug}', 'FavoriteController@delete');
+    Route::get('/favourites', 'FavouriteController@index');
+    Route::put('/favourites/{slug}', 'FavouriteController@store');
+    Route::delete('/favourites/{slug}', 'FavouriteController@delete');
 });
 
 //resources
