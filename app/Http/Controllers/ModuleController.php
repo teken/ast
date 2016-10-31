@@ -57,7 +57,7 @@ class ModuleController extends Controller
       } else {
         array_push($nameParts, [$end, 2]);
       }
-      $module->slug = implode('_',$module->slug);
+      $module->slug = implode('_', $nameParts);
     }
 
     $module->save();
