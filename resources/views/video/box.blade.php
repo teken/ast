@@ -1,4 +1,4 @@
-<a href="{{url("/video/{$video->slug}")}}">
+<a href="{{url("/videos/{$video->slug}")}}">
   <div class="video">
     <div class="title">{{ $video->title }}</div>
     <div class="description">{{ $video->description }}</div>
@@ -12,9 +12,9 @@
             <li><a href="{{url("/my/videos/{$video->slug}/edit")}}">Edit Video</a></li>
           @endif
           @if(Auth::user()->favourites()->pluck('id')->contains($video->id))
-            <li><a href="{{url("/my/videos/{$video->slug}/unfavourite")}}">Unfavourite</a></li>
+            <li><a href="{{url("/videos/{$video->slug}/unfavourite")}}">Unfavourite</a></li>
           @else
-            <li><a href="{{url("/my/videos/{$video->slug}/favourite")}}">Favourite</a></li>
+            <li><a href="{{url("/videos/{$video->slug}/favourite")}}">Favourite</a></li>
           @endif
         </ul>
       </div>
