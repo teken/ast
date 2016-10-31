@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Course;
 use App\Module;
+use App\User;
 use Auth;
 
 class CourseController extends Controller
@@ -17,8 +18,7 @@ class CourseController extends Controller
     }
 
     public function user(Request $request) {
-      $user = Auth::user();
-      $user->load('courses');
+      $user = User::with('courses')->findOrFail(Auth::user()->id);
       return view('course.subscriptions', ['courses' => $user->courses()]);
     }
 
