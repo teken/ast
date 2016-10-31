@@ -18,8 +18,8 @@ class VideoController extends Controller
 
   public function user(Request $request) {
     $user = Auth::user();
-    $user->load('courses');
-    return view('courses.index', ['courses' => $user->courses()]);
+    $user->load('videos');
+    return view('video.my', ['videos' => $user->videos()]);
   }
 
   public function details(Request $request, $slug)
@@ -28,7 +28,7 @@ class VideoController extends Controller
     return view('video.details', ['video' => $video]);
   }
 
-  public function store() {
+  public function store(Request $request) {
 
   }
 
