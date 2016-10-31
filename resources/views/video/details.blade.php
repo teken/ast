@@ -8,7 +8,7 @@
               <i class="glyphicon glyphicon-cog"></i><span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-              <li><a href="{{url("/videos/$video->slug/edit")}}">Edit Video</a></li>
+              <li><a href="{{url("/videos/{$video->slug}/edit")}}">Edit Video</a></li>
             </ul>
           </div>
         </div>
