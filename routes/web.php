@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/my/videos', 'VideoController@user');
     Route::get('/my/videos/new', 'VideoController@new');
-    Route::get('/my/videos/{slug}/edit', 'VideoController@edit');
+    Route::get('/videos/{slug}/edit', 'VideoController@edit');
     Route::match(['put', 'post'] ,'/my/videos/{slug?}', 'VideoController@store');
     Route::delete('/my/videos/{slug}', 'VideoController@delete');
 
