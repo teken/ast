@@ -20,9 +20,9 @@
       <div class="tags">{{$video->tags}}</div>
       <div class="actions">
         @if(!Auth::guest() and Auth::user()->favourites()->pluck('id')->contains($video->id))
-          <li><a class="btn btn-default unfavourite" href="{{url("/videos/{$video->slug}/unfavourite")}}">Unfavourite</a></li>
+          <a class="btn btn-default unfavourite" href="{{url("/videos/{$video->slug}/unfavourite")}}">Unfavourite</a>
         @else
-          <li><a class="btn btn-default favourite" href="{{url("/videos/{$video->slug}/favourite")}}">Favourite</a></li>
+          <a class="btn btn-default favourite" href="{{url("/videos/{$video->slug}/favourite")}}">Favourite</a>
         @endif
       </div>
     </div>
