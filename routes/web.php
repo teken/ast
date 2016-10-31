@@ -48,6 +48,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/videos/favourites', 'VideoController@favourites');
     Route::get('/videos/{slug}/favourite', 'VideoController@favourite');
     Route::get('/videos/{slug}/unfavourite', 'VideoController@unfavourite');
+
+    Route::put('/videos/{slug}/comment', 'VideoController@comment');
 });
 
 //resources

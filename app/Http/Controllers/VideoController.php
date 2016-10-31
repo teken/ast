@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Module;
 use App\Video;
+use App\VideoComment;
 use Auth;
 
 class VideoController extends Controller
@@ -25,7 +26,7 @@ class VideoController extends Controller
 
   public function details(Request $request, $slug)
   {
-    $video = Video::where('slug', $slug)->firstOrFail();
+    $video = Video::with('comments')->where('slug', $slug)->firstOrFail();
     return view('video.details', ['video' => $video]);
   }
 
@@ -76,13 +77,24 @@ class VideoController extends Controller
     $video = Video::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
     $user->favourites()->syncWithoutDetaching($video->id);
-    return redirect()->action('FavouriteController@index');
+    //return redirect()->action('FavouriteController@index');
   }
 
   public function unfavourites(Request $request, $slug) {
     $video = Video::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
     $user->favourites()->detach($video->id);
-    return redirect()->action('FavouriteController@index');
+    //return redirect()->action('FavouriteController@index');
+  }
+
+  public function comment(Request $request, $slug) {
+    $video = Video::where('slug', $slug)->firstOrFail();
+    $user = Auth::user();
+    $comment = new VideoComment();
+    $comment->comment = $request->input('comment');
+    $comment->user_id = $user->id;
+    $comment->video_id = $video->id;
+    $comment->save();
+    return redirect()->action('videoController@details', ['slug' => $slug]);
   }
 }
