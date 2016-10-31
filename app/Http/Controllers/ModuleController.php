@@ -47,6 +47,19 @@ class ModuleController extends Controller
     $module->description = $request->input('description');
     $module->slug = str_slug($module->title);
 
+    $slugQuery = Module::where('slug', $module->slug);
+    if ($slugQuery->count() > 0){
+      $nameParts = explode('_', $module->slug);
+      $end = array_pop($nameParts);
+      if (is_int($end)){
+        $value = intval($end);
+        array_push($nameParts, $value++);
+      } else {
+        array_push($nameParts, [$end, 2]);
+      }
+      $module->slug = implode('_',$module->slug);
+    }
+
     $module->save();
 
     $courseids = $request->input('courseids');
