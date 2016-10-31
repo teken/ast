@@ -75,6 +75,20 @@
         </div>
     </nav>
     <div class="container">
+        @hasSection('adminactions')
+          @if(!Auth::guest() and Auth::user()->administrator)
+            <div class="row admin toolbar">
+              <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="glyphicon glyphicon-cog"></i><span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  @yield('adminactions')
+                </ul>
+              </div>
+            </div>
+          @endif
+        @endif
         @yield('content')
     </div>
     <script src="/js/app.js"></script>
