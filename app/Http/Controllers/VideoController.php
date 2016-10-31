@@ -25,7 +25,7 @@ class VideoController extends Controller
 
   public function details(Request $request, $slug)
   {
-    $video = Video::where('slug', $slug)->get();
+    $video = Video::where('slug', $slug)->firstOrFail();
     return view('video.details', ['video' => $video]);
   }
 
