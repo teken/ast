@@ -2,6 +2,6 @@
 
 @section('content')
   <div class="videos">
-    @each('video.box', $module->videos(), 'video')
+    @each('video.box', $videos, 'video')
   </div>
 @endsection
