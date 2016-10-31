@@ -18,7 +18,7 @@ class CourseController extends Controller
     }
 
     public function user(Request $request) {
-      $user = User::with('courses')->findOrFail(Auth::user()->id);
+      $user = Auth::with('courses')->user();
       return view('course.subscriptions', ['courses' => $user->courses()]);
     }
 
