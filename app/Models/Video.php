@@ -47,7 +47,7 @@ class Video extends Model
           return $query['v'];
         break;
         case 'vimeo':
-          $path = parse_url($url, PHP_URL_QUERY)
+          $path = parse_url($url, PHP_URL_QUERY);
           $path = str_replace('/', '', $path);
           return $path;
         break;
