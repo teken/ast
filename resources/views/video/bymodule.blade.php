@@ -5,7 +5,7 @@
         {{ $module->title }}
       </div>
       <div class="videos">
-        @each('video.box', $module->videos(), 'video')
+        @each('video.box', $module->videos()->get(), 'video')
       </div>
     </div>
   @endif
