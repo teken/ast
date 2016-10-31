@@ -57,4 +57,15 @@ class Video extends Model
         break;
       }
     }
+
+    public function getVideoThumbnailUrl(){
+      switch($this->getVideoHost()){
+        case 'youtube':
+          return "https://i1.ytimg.com/vi/".$this->getVideoId()."/hqdefault.jpg";
+        break;
+        case 'vimeo':
+          return "TODO";
+        break;
+      }
+    }
 }

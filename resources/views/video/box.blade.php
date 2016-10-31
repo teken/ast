@@ -1,7 +1,7 @@
 <a href="{{url("/videos/{$video->slug}")}}">
   <div class="video">
     <div class="title">{{ $video->title }}</div>
-    <div class="description">{{ $video->description }}</div>
+    <div class="thumbnail"><img src="{{ $video->getVideoThumbnailUrl() }}"/></div>
     <div class="actions">
       <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
