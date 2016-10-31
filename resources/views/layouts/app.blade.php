@@ -52,7 +52,7 @@
                   <li class="separator"></li>
                   <li><a href="{{ url('/courses') }}">All Courses</a></li>
                   <li><a href="{{ url('/modules') }}">All Modules</a></li>
-                  <li><a href="{{ url('/videos') }}">All Videos</a></li>
+                  {{--<li><a href="{{ url('/videos') }}">All Videos</a></li>--}}
                   <li class="separator"></li>
                   @if(Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
