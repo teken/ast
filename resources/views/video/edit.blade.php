@@ -5,7 +5,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                  <form action="{{url("/my/video/{$video->slug}")}}" method="POST">
+                  <form action="{{url("/my/videos/{$video->slug}")}}" method="POST">
                     {!! csrf_field() !!}
                     {!! method_field($method) !!}
                     <div class="form-group">
