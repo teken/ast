@@ -43,11 +43,11 @@ class Video extends Model
     public function getVideoId(){
       switch($this->getVideoHost()){
         case 'youtube':
-          parse_str(parse_url($url, PHP_URL_QUERY), $query);
+          parse_str(parse_url($this->url, PHP_URL_QUERY), $query);
           return $query['v'];
         break;
         case 'vimeo':
-          $path = parse_url($url, PHP_URL_QUERY);
+          $path = parse_url($this->url, PHP_URL_PATH);
           $path = str_replace('/', '', $path);
           return $path;
         break;
