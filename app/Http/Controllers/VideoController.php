@@ -54,10 +54,9 @@ class VideoController extends Controller
     $video->description = $request->input('description');
     $video->tags = $request->input('tags');
     $video->slug = str_slug($video->title);
+    $video->save();
 
     $video->modules()->sync($request->input('moduleids'));
-
-    $video->save();
 
     return redirect()->action('VideoController@details', ['slug' => $video->slug]);
   }
