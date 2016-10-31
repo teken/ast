@@ -53,9 +53,10 @@ class CourseController extends Controller
       $course->description = $request->input('description');
       $course->slug = str_slug($course->title);
 
-      $course->modules()->sync($request->input('moduleids'));
-
       $course->save();
+
+      $moduleid = $request->input('moduleids');
+      if($moduleid != null) $course->modules()->sync($moduleid);
 
       return redirect()->action('CourseController@index');
     }
