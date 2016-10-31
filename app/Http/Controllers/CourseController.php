@@ -22,6 +22,7 @@ class CourseController extends Controller
       $user->load('courses');
       dump($user);
       dump($user->courses());
+      dump($user->courses()->get());
       return view('course.subscriptions', ['courses' => $user->courses()]);
     }
 
