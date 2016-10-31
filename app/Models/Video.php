@@ -32,4 +32,25 @@ class Video extends Model
     public function ratings() {
        return $this->hasMany('App\VideoRating');
     }
+
+    public function getVideoHost(){
+      $url = parse_url($this->url, PHP_URL_HOST);
+      $url = str_replace('www.','', $url);
+      $url = explode('.', $url)[0];
+      return $url;
+    }
+
+    public function getVideoId(){
+      switch($this->getVideoHost()){
+        case 'youtube':
+          parse_str(parse_url($url, PHP_URL_QUERY), $query);
+          return $query['v'];
+        break;
+        case 'vimeo':
+          $path = parse_url($url, PHP_URL_QUERY)
+          $path = str_replace('/', '', $path);
+          return $path;
+        break;
+      }
+    }
 }

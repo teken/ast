@@ -14,6 +14,9 @@
         </div>
     @endif
     <div class="video details">
+      <div class="player wrapper">
+        <div data-type="{{$video->getVideoHost()}}" data-video-id="{{$video->getVideoId()}}"></div>
+      </div>
       <div class="title">{{$video->title}}</div>
       <div class="url">{{$video->url}}</div>
       <div class="description">{{$video->description}}</div>
@@ -26,4 +29,13 @@
         @endif
       </div>
     </div>
+@endsection
+
+@section('scripts')
+  <script src="https://cdn.plyr.io/2.0.9/plyr.js"></script>
+  <script>plyr.setup();</script>
+@endsection
+
+@section('styles')
+  <link rel="stylesheet" href="https://cdn.plyr.io/2.0.9/plyr.css">
 @endsection

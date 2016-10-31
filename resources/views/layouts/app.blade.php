@@ -9,6 +9,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <link href="/css" rel="stylesheet">
+    @yield('styles')
 
     <script>
         window.Laravel = <?php echo json_encode([
@@ -77,5 +78,6 @@
         @yield('content')
     </div>
     <script src="/js/app.js"></script>
+    @yield('scripts')
 </body>
 </html>
