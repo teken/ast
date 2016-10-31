@@ -8,7 +8,6 @@
                   <form action="{{url("/my/video/{$video->slug}")}}" method="POST">
                     {!! csrf_field() !!}
                     {!! method_field($method) !!}
-                    <input type="hidden" name="id" placeholder="title" value="{{$video->id}}"/>
                     <div class="form-group">
                       <label for="url">URL</label>
                       <input type="text" name="url" placeholder="url" value="{{$video->url}}"/>
