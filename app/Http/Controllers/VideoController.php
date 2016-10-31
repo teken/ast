@@ -20,7 +20,7 @@ class VideoController extends Controller
   public function user(Request $request) {
     $user = Auth::user();
     $user->load('videos');
-    return view('video.my', ['videos' => $user->videos()]);
+    return view('video.my', ['videos' => $user->videos()->get()]);
   }
 
   public function details(Request $request, $slug)
