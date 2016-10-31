@@ -64,7 +64,8 @@ class Video extends Model
           return "https://i1.ytimg.com/vi/".$this->getVideoId()."/hqdefault.jpg";
         break;
         case 'vimeo':
-          return "TODO";
+          $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$this->getVideoId().".php"));
+          return $hash[0]['thumbnail_large'];
         break;
       }
     }
