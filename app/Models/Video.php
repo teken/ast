@@ -33,6 +33,10 @@ class Video extends Model
        return $this->hasMany('App\VideoRating');
     }
 
+    public function favourites() {
+       return $this->belongsToMany('App\User', 'userfavorites');
+    }
+
     public function getVideoHost(){
       $url = parse_url($this->url, PHP_URL_HOST);
       $url = str_replace('www.','', $url);
