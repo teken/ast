@@ -1,7 +1,7 @@
 <a href="{{url("/videos/{$video->slug}")}}">
   <div class="video">
     <div class="title">{{ $video->title }}</div>
-    <div class="thumbnail"><img src="{{ $video->getVideoThumbnailUrl() }}"/></div>
+    <img class="thumbnail" src="{{ $video->getVideoThumbnailUrl() }}"/>
     @if(!Auth::guest())
       <div class="actions">
         <div class="btn-group">
