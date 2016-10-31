@@ -24,12 +24,12 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('/courses/new', 'CourseController@new');
     Route::get('/courses/{slug}/edit', 'CourseController@edit');
-    Route::match(['put', 'post'], '/courses/{slug?}', 'CourseController@store', function ($slug = null) {return $slug;});
+    Route::match(['put', 'post'], '/courses/{slug?}', 'CourseController@store');
     Route::delete('/courses/{slug}', 'CourseController@delete');
 
     Route::get('/modules/new', 'ModuleController@new');
     Route::get('/modules/{slug}/edit', 'ModuleController@edit');
-    Route::match(['put', 'post'], '/modules/{slug?}', 'ModuleController@store', function ($slug = null) {return $slug;});
+    Route::match(['put', 'post'], '/modules/{slug?}', 'ModuleController@store');
     Route::delete('/modules/{slug}', 'ModuleController@delete');
 });
 
@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/my/videos', 'VideoController@user');
     Route::get('/my/videos/new', 'VideoController@new');
-    Route::match(['put', 'post'] ,'/my/videos/{slug?}', 'VideoController@store', function ($slug = "") {return $slug;});
+    Route::match(['put', 'post'] ,'/my/videos/{slug?}', 'VideoController@store');
     Route::delete('/my/videos/{slug}', 'VideoController@delete');
 
     Route::get('/favourites', 'FavouriteController@index');

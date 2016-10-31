@@ -41,7 +41,7 @@ class VideoController extends Controller
     return view('video.edit', ['video' => $video, 'modules' => $modules, 'method' => 'POST']);
   }
 
-  public function store(Request $request, $slug) {
+  public function store(Request $request, $slug = null) {
     $video;
     if ($request->isMethod('post')) {
       $video = Video::where('slug', $slug)->firstOrFail();
