@@ -17,7 +17,7 @@
         <div class="row module">
           <div class="title"><a href="{{url('/modules/'.$module->slug)}}">{{$module->title}}</a></div>
           <div class="videos">
-              @each('video.box', $module->videos(), 'video')
+              @each('video.box', $module->videos()->get(), 'video')
           </div>
         </div>
     @endforeach
