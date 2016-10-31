@@ -48,6 +48,8 @@
                     <li><a href="{{ url('/courses/subscriptions') }}">Course Subscriptions</a></li>
                     <li><a href="{{ url('/favourites') }}">Favourites</a></li>
                     <li><a href="{{ url('/my/videos') }}">My Videos</a></li>
+                    <li class="separator"></li>
+                    <li><a href="{{ url('/my/videos/new') }}">Add a Video</a></li>
                   @endif
                   <li class="separator"></li>
                   <li><a href="{{ url('/courses') }}">All Courses</a></li>

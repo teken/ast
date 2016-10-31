@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/courses/{slug}/unsubscribe', 'CourseController@unsubscribe');
 
     Route::get('/my/videos', 'VideoController@user');
+    Route::get('/my/videos/new', 'VideoController@new');
     Route::match(['put', 'post'] ,'/my/videos/{slug?}', 'VideoController@store');
     Route::delete('/my/videos/{slug}', 'VideoController@delete');
 

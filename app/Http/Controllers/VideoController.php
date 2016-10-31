@@ -28,8 +28,35 @@ class VideoController extends Controller
     return view('video.details', ['video' => $video]);
   }
 
-  public function store(Request $request) {
+  public function new() {
+    $video = new Video();
+    $modules = Module::get();
+    return view('video.edit', ['video' => $video, 'modules' => $modules, 'method' => 'PUT']);
+  }
 
+  public function edit($slug) {
+    $video = Video::where('slug', $slug)->firstOrFail();
+    $modules = Module::get();
+    return view('video.edit', ['video' => $video, 'modules' => $modules, 'method' => 'POST']);
+  }
+
+  public function store(Request $request) {
+    $video;
+    if ($request->isMethod('post')) {
+      $video = Video::findOrFail($request->input('id'));
+    } else if ($request->isMethod('put')) {
+      $video = new Video();
+    }
+
+    $video->title = $request->input('title');
+    $video->description = $request->input('description');
+    $video->slug = str_slug($video->title);
+
+    $video->modules()->sync($request->input('moduleids'));
+
+    $video->save();
+
+    return redirect()->action('VideoController@details', ['slug' => $video->slug]);
   }
 
   public function delete() {
