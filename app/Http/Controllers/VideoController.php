@@ -56,6 +56,19 @@ class VideoController extends Controller
     $video->tags = $request->input('tags');
     $video->slug = str_slug($video->title);
     $video->user_id = Auth::user()->id;
+
+    if (Video::where('slug', $video->slug)->count() > 0){
+      $nameParts = explode('_', $video->slug);
+      $end = array_pop($nameParts);
+      if (is_int($end)){
+        $value = intval($end);
+        array_push($nameParts, $value++);
+      } else {
+        array_push($nameParts, $end, '2');
+      }
+      $video->slug = implode('_', $nameParts);
+    }
+
     $video->save();
 
     $video->modules()->sync($request->input('moduleids'));

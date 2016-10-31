@@ -47,8 +47,7 @@ class ModuleController extends Controller
     $module->description = $request->input('description');
     $module->slug = str_slug($module->title);
 
-    $slugQuery = Module::where('slug', $module->slug);
-    if ($slugQuery->count() > 0){
+    if (Module::where('slug', $module->slug)->count() > 0){
       $nameParts = explode('_', $module->slug);
       $end = array_pop($nameParts);
       if (is_int($end)){

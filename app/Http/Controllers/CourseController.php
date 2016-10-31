@@ -53,6 +53,18 @@ class CourseController extends Controller
       $course->description = $request->input('description');
       $course->slug = str_slug($course->title);
 
+      if (Sourse::where('slug', $course->slug)->count() > 0){
+        $nameParts = explode('_', $course->slug);
+        $end = array_pop($nameParts);
+        if (is_int($end)){
+          $value = intval($end);
+          array_push($nameParts, $value++);
+        } else {
+          array_push($nameParts, $end, '2');
+        }
+        $course->slug = implode('_', $nameParts);
+      }
+
       $course->save();
 
       $moduleid = $request->input('moduleids');
