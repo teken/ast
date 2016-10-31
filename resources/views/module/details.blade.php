@@ -24,5 +24,8 @@
             @endforeach
         </ul>
       </div>
+      <div class="videos">
+        @each('video.box', $module->videos(), 'video')
+      </div>
     </div>
 @endsection
