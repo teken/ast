@@ -47,10 +47,10 @@ class ModuleController extends Controller
     $module->description = $request->input('description');
     $module->slug = str_slug($module->title);
 
+    $module->save();
+
     $courseids = $request->input('courseids');
     if($courseids != null) $module->courses()->sync($courseids);
-
-    $module->save();
 
     return redirect()->action('ModuleController@index');
   }
