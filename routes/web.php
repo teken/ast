@@ -41,12 +41,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/my/videos', 'VideoController@user');
     Route::get('/my/videos/new', 'VideoController@new');
+    Route::get('/my/videos/{slug}/edit', 'VideoController@edit');
     Route::match(['put', 'post'] ,'/my/videos/{slug?}', 'VideoController@store');
     Route::delete('/my/videos/{slug}', 'VideoController@delete');
 
-    Route::get('/favourites', 'FavouriteController@index');
-    Route::put('/favourites/{slug}', 'FavouriteController@store');
-    Route::delete('/favourites/{slug}', 'FavouriteController@delete');
+    Route::get('/videos/favourites', 'VideoController@favourites');
+    Route::put('/videos/{slug}/favourite', 'VideoController@favourite');
+    Route::delete('/videos/{slug}/unfavourite', 'VideoController@unfavourite');
 });
 
 //resources

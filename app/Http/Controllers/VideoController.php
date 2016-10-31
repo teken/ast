@@ -65,4 +65,24 @@ class VideoController extends Controller
   public function delete() {
 
   }
+
+  public function favourites(Request $request) {
+    $user = Auth::user();
+    $user->load('favourites.video');
+    return view('favourites.index', ['videos' => $user->favourites()]);
+  }
+
+  public function favourite(Request $request, $slug) {
+    $video = Video::where('slug', $slug)->firstOrFail();
+    $user = Auth::user();
+    $user->favourites()->syncWithoutDetaching($video->id);
+    return redirect()->action('FavouriteController@index');
+  }
+
+  public function unfavourites(Request $request, $slug) {
+    $video = Video::where('slug', $slug)->firstOrFail();
+    $user = Auth::user();
+    $user->favourites()->detach($video->id);
+    return redirect()->action('FavouriteController@index');
+  }
 }
