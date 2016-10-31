@@ -55,7 +55,7 @@ class ModuleController extends Controller
         $value = intval($end);
         array_push($nameParts, $value++);
       } else {
-        array_push($nameParts, $end, '2']);
+        array_push($nameParts, $end, '2');
       }
       $module->slug = implode('_', $nameParts);
     }
