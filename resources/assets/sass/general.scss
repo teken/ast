@@ -31,11 +31,6 @@
     font-size: 20px;
   }
 
-  .boxes {
-    list-style-type: none;
-    height:100%;
-  }
-
   .box {
     width: 300px;
     height: 100%;
@@ -45,5 +40,6 @@
   a {
     vertical-align: middle;
     display: table-cell;
+    text-align: center;
   }
 }
