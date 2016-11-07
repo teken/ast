@@ -26,3 +26,12 @@ nav.navbar {
     border-color: $font-primary-colour;
   }
 }
+
+.details {
+  color: $font-primary-colour;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
