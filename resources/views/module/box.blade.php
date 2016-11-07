@@ -1,7 +1,7 @@
 <div class="box">
-    <div class="wrapper">
-      <a href="{{url('/modules/'.$module->slug)}}">
-        {{$module->title}}
-      </a>
-    </div>
+  <div class="wrapper">
+    <a href="{{url('/modules/'.$module->slug)}}">
+      <div class="title">{{$module->title}}</div>
+    </a>
   </div>
+</div>
