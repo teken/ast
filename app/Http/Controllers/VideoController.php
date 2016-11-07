@@ -93,7 +93,7 @@ class VideoController extends Controller
     return redirect()->back();
   }
 
-  public function unfavourites(Request $request, $slug) {
+  public function unfavourite(Request $request, $slug) {
     $video = Video::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
     $user->favourites()->detach([$video->id]);
