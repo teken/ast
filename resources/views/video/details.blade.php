@@ -10,18 +10,27 @@
       <div data-type="{{$video->getVideoHost()}}" data-video-id="{{$video->getVideoId()}}"></div>
     </div>
     <div class="details">
-      <div class="title">{{$video->title}}</div>
-      <div class="url">{{$video->url}}</div>
-      <div class="description">{{$video->description}}</div>
-      <div class="tags">{{$video->tags}}</div>
-      <div class="actions">
-        @if(!Auth::guest())
-          @if(Auth::user()->favourites()->pluck('id')->contains($video->id))
-            <a class="btn btn-default unfavourite" href="{{url("/videos/{$video->slug}/unfavourite")}}">Unfavourite</a>
-          @else
-            <a class="btn btn-default favourite" href="{{url("/videos/{$video->slug}/favourite")}}">Favourite</a>
+      <div class="title">
+        <a href="{{$video->url}}" target="_blank">{{$video->title}}</a>
+      </div>
+      {{--<div class="url">{{$video->url}}</div>--}}
+      <div class="col-sm-6">
+        <div class="description">{{$video->description}}</div>
+        <div class="tags">{{$video->tags}}</div>
+      </div>
+      <div class="col-sm-6">
+        <div class="actions pull-right">
+          @if(!Auth::guest())
+            @if(Auth::user()->favourites()->pluck('id')->contains($video->id))
+              <a class="btn btn-default unfavourite" href="{{url("/videos/{$video->slug}/unfavourite")}}">Unfavourite</a>
+            @else
+              <a class="btn btn-default favourite" href="{{url("/videos/{$video->slug}/favourite")}}">Favourite</a>
+            @endif
           @endif
-        @endif
+        </div>
+        <div class="rating pull-right">
+          {{"Good: ".$video->goodRatings()->count()." Bad: ".$video->badRatings()->count()}}
+        </div>
       </div>
     </div>
     <div class="comments">

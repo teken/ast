@@ -33,6 +33,14 @@ class Video extends Model
        return $this->hasMany('App\VideoRating');
     }
 
+    public function goodRatings() {
+       return $this->ratings()->where('rating', true);
+    }
+
+    public function badRatings() {
+       return $this->ratings()->where('rating', false);
+    }
+
     public function favourites() {
        return $this->belongsToMany('App\User', 'userfavorites');
     }
