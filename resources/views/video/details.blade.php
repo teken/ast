@@ -31,14 +31,14 @@
             {!! csrf_field() !!}
             {!! method_field('PUT') !!}
             <div class="form-group">
-              <textarea type="text" name="comment" placeholder="Comment..."></textarea>
+              <textarea type="text" name="comment" placeholder="Comment..." class="form-control"></textarea>
             </div>
             <div class="form-group pull-right">
               <input class="btn btn-default" type="submit" value="Submit Comment"/>
             </div>
           </form>
         @else
-          <textarea type="text" name="comment" placeholder="Please sign to in to comment." disabled></textarea>
+          <textarea type="text" name="comment" placeholder="Please sign to in to comment." class="form-control" disabled></textarea>
         @endif
       </div>
       @each('video.comment.box', $video->comments(), 'comment')
