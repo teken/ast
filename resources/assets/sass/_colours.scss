@@ -11,7 +11,7 @@ body {
   background-color: $background-colour;
 }
 
-a {
+a, a:hover, a:active, a:visited {
   color: inherit;
   text-decoration: underline;
 }
