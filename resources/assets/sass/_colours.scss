@@ -18,6 +18,10 @@ a, a:hover, a:active, a:visited {
 
 a:hover, a:active {
   text-decoration: underline;
+
+  .title {
+    text-decoration: inherit;
+  }
 }
 
 nav.navbar {
