@@ -14,10 +14,12 @@
 //galleries
 .gallery {
   width: 100%;
-  height: 180px;
+  height: 235px;
 
   .title {
     font-size: 24px;
+    position: absolute;
+    z-index: 2;
   }
 
   .boxes {
@@ -25,21 +27,29 @@
   }
 
   .wrapper {
-    display: table;
-    height: 100%;
-    width: 100%;
     font-size: 20px;
+    position: relative;
   }
 
   .box {
     width: 300px;
-    height: 100%;
     display: inline-block;
   }
 
   a {
     vertical-align: middle;
-    display: table-cell;
     text-align: center;
+    position: relative;
+  }
+
+  .thumb {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .actions {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
