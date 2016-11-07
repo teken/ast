@@ -10,18 +10,18 @@
                     {!! method_field($method) !!}
                     <div class="form-group">
                       <label for="url">URL</label>
-                      <input type="text" name="url" placeholder="url" value="{{$video->url}}"/>
+                      <input class="form-control" type="text" name="url" placeholder="url" value="{{$video->url}}"/>
                     </div>
                     <div class="form-group">
                       <label for="title">Title</label>
-                      <input type="text" name="title" placeholder="title" value="{{$video->title}}"/>
+                      <input class="form-control" type="text" name="title" placeholder="title" value="{{$video->title}}"/>
                     </div>
                     <div class="form-group">
                       <label for="description">Descritpion</label>
-                      <textarea name="description" placeholder="Some text...">{{$video->description}}</textarea>
+                      <textarea class="form-control" name="description" placeholder="Some text...">{{$video->description}}</textarea>
                     </div>
                     <div class="form-group">
-                      <select multiple name="moduleids[]">
+                      <select class="form-control" multiple name="moduleids[]">
                         @forelse($modules as $module)
                           <option value="{{$module->id}}">{{$module->title}}</option>
                         @empty
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                       <label for="tags">Tags <small>Comma Separated List</small></label>
-                      <textarea name="tags" placeholder="Some text...">{{$video->tags}}</textarea>
+                      <textarea class="form-control" name="tags" placeholder="Some text...">{{$video->tags}}</textarea>
                     </div>
                     <div class="form-group">
                       <input type="submit" value="Save" class="pull-right btn btn-primary" />

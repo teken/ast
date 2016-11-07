@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="comments">
-      <div class="new">
+      <div class="new clearfix">
         @if(!Auth::guest())
           <form action="{{url("/videos/{$video->slug}/comment")}}" method="POST">
             {!! csrf_field() !!}

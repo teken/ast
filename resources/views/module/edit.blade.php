@@ -10,12 +10,12 @@
                     {!! method_field($method) !!}
                     <input type="hidden" name="id" placeholder="title" value="{{$module->id}}"/>
                     <div class="form-group">
-                      <input type="text" name="title" placeholder="title" value="{{$module->title}}"/>
+                      <input class="form-control" type="text" name="title" placeholder="title" value="{{$module->title}}"/>
                     </div>
                     <div class="form-group">
-                      <textarea name="description" placeholder="Some text...">{{$module->description}}</textarea>
+                      <textarea class="form-control" name="description" placeholder="Some text...">{{$module->description}}</textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="form-control" class="form-group">
                       <select multiple name="courseids[]">
                         @forelse($courses as $course)
                           <option value="{{$course->id}}">{{$course->title}}</option>
