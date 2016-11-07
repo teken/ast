@@ -108,6 +108,6 @@ class VideoController extends Controller
     $comment->user_id = $user->id;
     $comment->video_id = $video->id;
     $comment->save();
-    return redirect()->action('videoController@details', ['slug' => $slug]);
+    return redirect()->action('VideoController@details', ['slug' => $slug]);
   }
 }
