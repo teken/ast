@@ -11,15 +11,18 @@ body {
   background-color: $background-colour;
 }
 
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 nav.navbar {
   background-color: $primary-colour;
 
-  .navbar-brand {
-    color: $font-primary-colour;
-  }
-
+  .navbar-brand,
   .navbar-nav > li > a {
     color: $font-primary-colour;
+    text-decoration: none;
   }
 
   .search input {
@@ -29,9 +32,4 @@ nav.navbar {
 
 .details {
   color: $font-primary-colour;
-}
-
-a {
-  color: inherit;
-  text-decoration: underline;
 }
