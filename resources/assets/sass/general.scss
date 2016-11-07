@@ -73,3 +73,10 @@
     font-size: 35px;
   }
 }
+
+//admin toolbar#
+.admin.toolbar {
+  position: fixed;
+  width: inherit;
+  z-index: 5;
+}
