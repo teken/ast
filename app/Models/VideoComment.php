@@ -15,7 +15,7 @@ class VideoComment extends Model
         'user_id', 'video_id', 'comment'
     ];
 
-    protected $dates = ['created_at','deleted_at'];
+    protected $dates = ['created_at','updated_at','deleted_at'];
 
     public function video() {
        return $this->belongsTo('App\Video', 'video_id');
