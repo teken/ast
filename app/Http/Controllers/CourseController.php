@@ -53,7 +53,7 @@ class CourseController extends Controller
       $course->description = $request->input('description');
       $course->slug = str_slug($course->title);
 
-      if (Sourse::where('slug', $course->slug)->count() > 0){
+      if (Course::where('slug', $course->slug)->count() > 0){
         $nameParts = explode('_', $course->slug);
         $end = array_pop($nameParts);
         if (is_int($end)){
