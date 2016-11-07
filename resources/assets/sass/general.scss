@@ -20,13 +20,30 @@
     font-size: 24px;
   }
 
+  .boxes {
+    height: 80%;
+  }
+
+  .wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+  }
+
   ul {
     list-style-type: none;
+    height:100%;
   }
 
   li {
     width: 300px;
     height: 100%;
     display: inline-block;
+  }
+
+  a {
+    vertical-align: middle;
+    display: table-cell;
   }
 }
