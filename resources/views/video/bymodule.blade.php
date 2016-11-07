@@ -2,7 +2,9 @@
   @if (count($module->videos()) > 0)
     <div class="module gallery">
       <div class="title">
-        {{ $module->title }}
+        <a href="{{ url("/modules/{$module->slug}") }}">
+          {{ $module->title }}
+        </a>
       </div>
       <div class="videos boxes">
         @each('video.box', $module->videos()->get(), 'video')
