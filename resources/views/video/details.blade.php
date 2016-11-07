@@ -50,7 +50,7 @@
           <textarea type="text" name="comment" placeholder="Please sign to in to comment." class="form-control" disabled></textarea>
         @endif
       </div>
-      @each('video.comment.box', $video->comments(), 'comment')
+      @each('video.comment.box', $video->comments()->orderBy('created_at', 'desc')->take(100)->get(), 'comment')
     </div>
   </div>
 @endsection
