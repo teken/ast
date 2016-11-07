@@ -90,14 +90,14 @@ class VideoController extends Controller
     $video = Video::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
     $user->favourites()->syncWithoutDetaching([$video->id]);
-    //return redirect()->action('FavouriteController@index');
+    return redirect()->back();
   }
 
   public function unfavourites(Request $request, $slug) {
     $video = Video::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
     $user->favourites()->detach([$video->id]);
-    //return redirect()->action('FavouriteController@index');
+    return redirect()->back();
   }
 
   public function comment(Request $request, $slug) {
