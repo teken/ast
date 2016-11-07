@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/videos/{slug}/unfavourite', 'VideoController@unfavourite');
 
     Route::put('/videos/{slug}/comment', 'VideoController@comment');
+    Route::get('/comments/{commentId}/delete', 'VideoController@deleteComment');
 });
 
 //resources
