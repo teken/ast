@@ -11,13 +11,13 @@
 
       <div class="courses">
         <ul>
-            @foreach($module->courses() as $course)
+            @foreach($module->courses()->get() as $course)
                 <li><a href="{{url('/courses/'.$course->slug)}}">$course->title</a></li>
             @endforeach
         </ul>
       </div>
-      <div class="videos">
-        @each('video.box', $module->videos(), 'video')
+      <div class="videos gallery">
+        @each('video.box', $module->videos()->get(), 'video')
       </div>
     </div>
 @endsection
