@@ -4,7 +4,7 @@
       <div class="title">
         {{ $module->title }}
       </div>
-      <div class="videos">
+      <div class="videos boxes">
         @each('video.box', $module->videos()->get(), 'video')
       </div>
     </div>
