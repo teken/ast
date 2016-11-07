@@ -3,7 +3,7 @@
     <a href="{{url('/modules/'.$module->slug)}}">
       <div class="title">{{$module->title}}</div>
       @if($module->videos()->count() > 0)
-        <img class="thumb" href="{{$module->videos()->first()->slug}}" />
+        <img class="thumb" href="{{$module->videos()->first()->getVideoThumbnailUrl())}}" />
       @endif
     </a>
   </div>
