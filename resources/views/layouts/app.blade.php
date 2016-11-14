@@ -17,7 +17,7 @@
         ]); ?>
 
         function search(){
-          window.location.href = "{{url('/search/')}}"+$('input[type="search"]').val();
+          window.location.href = "{{url('/search')}}/"+$('input[type="search"]').val();
         }
     </script>
 </head>
