@@ -32,6 +32,11 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/modules/{slug}/edit', 'ModuleController@edit');
     Route::match(['put', 'post'], '/modules/{slug?}', 'ModuleController@store');
     Route::delete('/modules/{slug}', 'ModuleController@delete');
+
+    //users
+    Route::get('/users', 'UserController@index');
+    Route::get('/users/{id}/promote', 'UserController@promote');
+    Route::get('/users/{id}/demote', 'UserController@demote');
 });
 
 //users
