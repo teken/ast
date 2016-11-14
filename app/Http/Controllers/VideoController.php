@@ -14,7 +14,7 @@ class VideoController extends Controller
 {
   public function home()
   {
-    $videos = Video::get();
+    $videos = Video::orderBy('created_at', 'desc')->get();
     return view('video.index', ['videos' => $videos]);
   }
 
