@@ -14,7 +14,7 @@
 //home
 Route::get('/', 'HomeController@index');
 Route::get('/home', function () { return  redirect('/'); });
-Route::get('/serach/{term}', 'VideoController@search');
+Route::get('/search/{term}', 'VideoController@search');
 
 //auth
 Auth::routes();
