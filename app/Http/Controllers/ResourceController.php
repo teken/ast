@@ -24,6 +24,6 @@ class ResourceController extends Controller
 
   public function defaultthumb()
   {
-    return response()->file(resources_path('assets/imgs/video_icon.png')); //	max-age = seconds
+    return response()->file(resource_path('assets/imgs/video_icon.png')); //	max-age = seconds
   }
 }
