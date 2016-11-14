@@ -104,7 +104,6 @@
             </div>
           @endif
         @endif
-
         @yield('content')
     </div>
     <script src="/js/app.js"></script>
