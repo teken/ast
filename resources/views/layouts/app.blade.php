@@ -104,7 +104,7 @@
       }
 
       (function(){
-        $window.on('load', function(){
+        $(window).on('load', function(){
           $('.gallery:not(.grid)').mCustomScrollbar({
             axis:'x',
             theme: 'light-thick'
