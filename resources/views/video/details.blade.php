@@ -42,7 +42,8 @@
         </div>
         <div class="col-sm-12">
           <div class="rating pull-right">
-            {{"Good: ".$video->goodRatings()->count()." Bad: ".$video->badRatings()->count()}}
+            <a href="{{url("/videos/{$video->slug}/rate/good")}}">Good: {{$video->goodRatings()->count()}}</a>
+            <a href="{{url("/videos/{$video->slug}/rate/bad")}}">Bad: {{$video->badRatings()->count()}}</a>
           </div>
         </div>
       </div>

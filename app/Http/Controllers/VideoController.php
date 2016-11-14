@@ -11,6 +11,7 @@ use App\Module;
 use App\ModuleVideo;
 use App\Video;
 use App\VideoComment;
+use App\VideoRating;
 use Auth;
 
 class VideoController extends Controller
@@ -145,5 +146,29 @@ class VideoController extends Controller
       }
     }
     return view('video.searchresults', ['videos' => $results->get()]);
+  }
+
+  public function rateGood(Request $request, $slug) {
+    $video = Video::where('slug', $slug)->firstOrFail();
+    $user = Auth::user();
+    $this->rate($video->id, $user->id, true);
+    return redirect()->back();
+  }
+
+  public function rateBad(Request $request, $slug) {
+    $video = Video::where('slug', $slug)->firstOrFail();
+    $user = Auth::user();
+    $this->rate($video->id, $user->id, false);
+    return redirect()->back();
+  }
+
+  private function rate($video_id, $user_id, $rate)
+  {
+    $rating = VideoRating::where([['user_id','=',$user_id],['video_id', '=', $video_id]])->first();
+    if ($rating == null) $rating = new VideoRating();
+    $rating->video_id = $video_id;
+    $rating->user_id = $user_id;
+    $rating->rating = $rate;
+    $rating->save();
   }
 }

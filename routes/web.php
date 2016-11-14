@@ -60,6 +60,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/videos/{slug}/unfavourite', 'VideoController@unfavourite');
 
     Route::put('/videos/{slug}/comment', 'VideoController@comment');
+
+    Route::get('/videos/{slug}/rate/good', 'VideoController@rateGood');
+    Route::get('/videos/{slug}/rate/bad', 'VideoController@rateBad');
 });
 
 //resources
