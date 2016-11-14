@@ -28,12 +28,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/courses/new', 'CourseController@new');
     Route::get('/courses/{slug}/edit', 'CourseController@edit');
     Route::match(['put', 'post'], '/courses/{slug?}', 'CourseController@store');
-    Route::delete('/courses/{slug}', 'CourseController@delete');
+    Route::get('/courses/{slug}/delete', 'CourseController@delete');
 
     Route::get('/modules/new', 'ModuleController@new');
     Route::get('/modules/{slug}/edit', 'ModuleController@edit');
     Route::match(['put', 'post'], '/modules/{slug?}', 'ModuleController@store');
-    Route::delete('/modules/{slug}', 'ModuleController@delete');
+    Route::get('/modules/{slug}/delete', 'ModuleController@delete');
 
     //users
     Route::get('/users', 'UserController@index');
@@ -50,7 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/my/videos/new', 'VideoController@new');
     Route::get('/videos/{slug}/edit', 'VideoController@edit');
     Route::match(['put', 'post'] ,'/my/videos/{slug?}', 'VideoController@store');
-    Route::delete('/my/videos/{slug}', 'VideoController@delete');
+    Route::get('/videos/{slug}/delete', 'VideoController@delete');
 
     Route::get('/videos/favourites', 'VideoController@favourites');
     Route::get('/videos/{slug}/favourite', 'VideoController@favourite');
