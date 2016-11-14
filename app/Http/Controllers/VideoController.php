@@ -20,7 +20,7 @@ class VideoController extends Controller
     $videos = Video::orderBy('created_at', 'desc')->get();
     return view('video.index', ['videos' => $videos]);
   }
-    
+
   public function user(Request $request) {
     $user = Auth::user();
     $user->load('videos');
@@ -88,7 +88,7 @@ class VideoController extends Controller
 
   public function favourites(Request $request) {
     $user = Auth::user();
-    $user->load('favourites.video');
+    $user->load('favourites');
     return view('video.favourites', ['videos' => $user->favourites()->get()]);
   }
 

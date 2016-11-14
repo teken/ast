@@ -4,6 +4,6 @@
 
 @section('content')
   <div class="videos gallery grid">
-      @each('video.box', $videos->get(), 'video')
+      @each('video.box', $videos, 'video')
   </div>
 @endsection
