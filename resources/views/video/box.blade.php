@@ -12,6 +12,7 @@
             <ul class="dropdown-menu">
               @if(Auth::user()->id == $video->user_id || Auth::user()->administrator)
                 <li><a href="{{url("/my/videos/{$video->slug}/edit")}}">Edit Video</a></li>
+                <li><a href="{{url("/my/videos/{$video->slug}/delete")}}">Delete Video</a></li>
               @endif
               @if(Auth::user()->favourites()->pluck('video_id')->contains($video->id))
                 <li><a href="{{url("/videos/{$video->slug}/unfavourite")}}">Unfavourite</a></li>

@@ -3,7 +3,8 @@
 @section('title'){{$course->title}}@endsection
 
 @section('adminactions')
-  <li><a href="{{url('/courses/'.$course->slug.'/edit')}}">Edit Course</a></li>
+  <li><a href="{{url("/courses/{$course->slug}/edit")}}">Edit Course</a></li>
+  <li><a href="{{url("/courses/{$course->slug}/delete")}}">Delete Course</a></li>
 @endsection
 
 @section('searchscope')course:{{$course->slug}}@endsection

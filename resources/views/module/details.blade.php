@@ -3,7 +3,8 @@
 @section('title'){{$module->title}}@endsection
 
 @section('adminactions')
-  <li><a href="{{url('/modules/'.$module->slug.'/edit')}}">Edit Module</a></li>
+  <li><a href="{{url("/modules/{$module->slug}/edit")}}">Edit Module</a></li>
+  <li><a href="{{url("/modules/{$module->slug}/delete")}}">Delete Module</a></li>
 @endsection
 
 @section('searchscope')module:{{$module->slug}}@endsection
