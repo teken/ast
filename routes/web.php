@@ -14,6 +14,8 @@
 //home
 Route::get('/', 'VideoController@home');
 Route::get('/home', function () { return  redirect('/'); });
+
+//search
 Route::get('/search/{term}', 'VideoController@search');
 
 //auth
@@ -39,7 +41,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/users/{id}/demote', 'UserController@demote');
 });
 
-//users
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/courses/subscriptions', 'CourseController@user');
     Route::get('/courses/{slug}/subscribe', 'CourseController@subscribe');
@@ -62,7 +63,6 @@ Route::group(['middleware' => 'auth'], function () {
 //resources
 Route::get('/css', 'ResourceController@css');
 
-//not auth-ed
 Route::get('/courses', 'CourseController@index');
 Route::get('/courses/{slug}', 'CourseController@details');
 

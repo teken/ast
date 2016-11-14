@@ -114,7 +114,14 @@ class VideoController extends Controller
     $comment->user_id = $user->id;
     $comment->video_id = $video->id;
     $comment->save();
-    return redirect()->action('VideoController@details', ['slug' => $slug]);
+    return redirect()->back();
+  }
+
+  public function deleteComment(Request $request, $id) {
+    $comment = VideoComment::findorFail($id);
+    $user = Auth::user();
+    if ($user->id == $comment->user_id || $user->administrator) $comment->delete();
+    return redirect()->back();
   }
 
   public function search($term) {
