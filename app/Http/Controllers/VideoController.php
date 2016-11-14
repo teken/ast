@@ -88,7 +88,7 @@ class VideoController extends Controller
 
   public function favourites(Request $request) {
     $user = Auth::user();
-    $user->load('favourites');
+    $user->load('favourites.video');
     return view('video.favourites', ['videos' => $user->favourites()->get()]);
   }
 
