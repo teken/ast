@@ -34,15 +34,6 @@ body > .container {
     z-index: 2;
   }
 
-  .box .title {
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 69px;
-  }
-
   .boxes {
     height: 80%;
     white-space: nowrap;
@@ -57,6 +48,16 @@ body > .container {
   .box {
     width: 300px;
     display: inline-block;
+    white-space: normal;
+
+    .title {
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 69px;
+    }
   }
 
   a {
