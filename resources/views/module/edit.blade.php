@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('title')
+  @if(empty($module->title))
+    Create Module
+  @else
+    Edit {{$module->title}}
+  @endif
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

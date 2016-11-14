@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title')Search Results @endsection
+
 @section('content')
   @if($videos->count() > 0)
     <div class="videos gallery grid">

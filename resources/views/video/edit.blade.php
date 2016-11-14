@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('title')
+  @if(empty($video->title))
+    Create Video
+  @else
+    Edit {{$video->title}}
+  @endif
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
