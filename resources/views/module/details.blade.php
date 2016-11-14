@@ -4,6 +4,8 @@
   <li><a href="{{url('/modules/'.$module->slug.'/edit')}}">Edit Module</a></li>
 @endsection
 
+@section('searchscope')module:{{$module->slug}}@endsection
+
 @section('content')
     <div class="module details">
       <div class="title">{{$module->title}}</div>
