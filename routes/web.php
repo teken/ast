@@ -64,6 +64,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 //resources
 Route::get('/css', 'ResourceController@css');
+Route::get('/defaultthumb', 'ResourceController@defaultthumb');
+
 
 Route::get('/courses', 'CourseController@index');
 Route::get('/courses/{slug}', 'CourseController@details');

@@ -84,6 +84,9 @@ class Video extends Model
           $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$this->getVideoId().".php"));
           return $hash[0]['thumbnail_large'];
         break;
+        default:
+          return url('/defaultthumb');
+        break;
       }
     }
 }

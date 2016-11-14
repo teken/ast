@@ -21,4 +21,9 @@ class ResourceController extends Controller
     $css = $scss->compile('@import "app.scss";');
     return response($css, 200)->withHeaders(['Content-Type'=> 'text/css', 'Cache-control'=> 'no-cache']); //	max-age = seconds
   }
+
+  public function defaultthumb()
+  {
+    return response()->file(resources_path('assets/imgs/video_icon.png')); //	max-age = seconds
+  }
 }
