@@ -137,12 +137,12 @@ class VideoController extends Controller
           $course = Course::where('slug', $parts[1])->firstOrFail();
           $course->load('modules.videos');
 
-          $results =
+
           break;
         case 'module':
           $module = Module::where('slug', $parts[1])->firstOrFail();
           $link = ModuleVideo::where('module_id',$module->id);
-          $results =
+          
           break;
       }
     } else
