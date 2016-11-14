@@ -17,10 +17,12 @@
                       <td>{{$user->name()}}</td>
                       <td>{{$user->email}}</td>
                       <td>
-                        @if ($user->administrator && $user->id != Auth::user()->id)
-                          <a href="{{url("/users/{$user->id}/demote")}}">User Management</a>
-                        @else
-                          <a href="{{url("/users/{$user->id}/promote")}}">User Management</a>
+                        @if ($user->id != Auth::user()->id)
+                          @if ($user->administrator)
+                            <a href="{{url("/users/{$user->id}/demote")}}">Demote</a>
+                          @else
+                            <a href="{{url("/users/{$user->id}/promote")}}">Promote</a>
+                          @endif
                         @endif
                       </td>
                     </tr>
