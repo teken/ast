@@ -1,3 +1,8 @@
+//body
+body > .container {
+  min-width: 300px;
+}
+//navbar
 .search input {
   width: 100%;
   line-height: 34px;
@@ -38,6 +43,7 @@
   .boxes {
     height: 80%;
     white-space: nowrap;
+    min-width:300px;
   }
 
   .wrapper {
