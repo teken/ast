@@ -89,6 +89,21 @@
               </div>
             </div>
           @endif
+        @else
+          @hasSection('useractions')
+            @if(!Auth::guest())
+              <div class="row admin toolbar">
+                <div class="btn-group pull-right">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="glyphicon glyphicon-cog"></i><span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    @yield('useractions')
+                  </ul>
+                </div>
+              </div>
+            @endif
+          @endif
         @endif
         @yield('content')
     </div>

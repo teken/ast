@@ -7,6 +7,13 @@
   <li><a href="{{url("/videos/{$video->slug}/delete")}}">Delete Video</a></li>
 @endsection
 
+@if($video->user_id == Auth::user()->id)
+  @section('useractions')
+    <li><a href="{{url("/videos/{$video->slug}/edit")}}">Edit Video</a></li>
+    <li><a href="{{url("/videos/{$video->slug}/delete")}}">Delete Video</a></li>
+  @endsection
+@endif
+
 @section('content')
   <div class="video details">
     <div class="player wrapper">
