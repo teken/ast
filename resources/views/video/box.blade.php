@@ -3,6 +3,7 @@
     <a href="{{url("/videos/{$video->slug}")}}">
       <div class="title">{{ $video->title }}</div>
       <img class="thumb" src="{{ $video->getVideoThumbnailUrl() }}"/>
+      {{--
       @if(!Auth::guest())
         <div class="actions">
           <div class="btn-group">
@@ -23,6 +24,7 @@
           </div>
         </div>
       @endif
+      --}}
     </a>
   </div>
 </div>
