@@ -4,6 +4,8 @@
   <li><a href="{{url('/courses/'.$course->slug.'/edit')}}">Edit Course</a></li>
 @endsection
 
+@section('searchscope')course:{{$course->slug}}@endsection
+
 @section('content')
     <div class="course details">
       <div class="title">{{$course->title}}</div>
