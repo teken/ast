@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserFavorite extends Model
+class ModuleVideo extends Model
 {
     protected $table = 'modulevideos';
 
