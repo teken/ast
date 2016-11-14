@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Course;
+use App\CourseModule;
 use App\Module;
 use App\ModuleVideo;
 use App\Video;
@@ -135,14 +136,14 @@ class VideoController extends Controller
       switch ($parts[0]) {
         case 'course':
           $course = Course::where('slug', $parts[1])->firstOrFail();
-          $course->load('modules.videos');
-
-
+          $courseLinks = CourseModule::where('course_id', $course_id)->pluck('module_id');
+          $moduleLinks = ModuleVideo::whereIn('module_id',$courseLinks)->pluck('video_id');
+          $results = $results->whereIn('id', $moduleLinks);
           break;
         case 'module':
           $module = Module::where('slug', $parts[1])->firstOrFail();
-          $link = ModuleVideo::where('module_id',$module->id);
-          
+          $moduleLinks = ModuleVideo::where('module_id',$module->id)->pluck('video_id');
+          $results = $results->whereIn('id', $moduleLinks);
           break;
       }
     } else
