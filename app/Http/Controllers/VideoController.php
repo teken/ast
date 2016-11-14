@@ -146,7 +146,7 @@ class VideoController extends Controller
           $results = $results->whereIn('id', $moduleLinks);
           break;
       }
-    } else
+    }
     return view('video.searchresults', ['videos' => $results->get()]);
   }
 }
