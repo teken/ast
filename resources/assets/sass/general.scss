@@ -85,4 +85,9 @@
   position: fixed;
   width: inherit;
   z-index: 5;
+  pointer-events: none;
+
+  .btn-group {
+    pointer-events: all;
+  }
 }
