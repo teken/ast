@@ -23,8 +23,8 @@
                     <div class="form-group">
                       <textarea class="form-control" name="description" placeholder="Some text...">{{$module->description}}</textarea>
                     </div>
-                    <div class="form-control" class="form-group">
-                      <select multiple name="courseids[]">
+                    <div class="form-group" class="form-group">
+                      <select class="form-control" multiple name="courseids[]">
                         @forelse($courses as $course)
                           <option value="{{$course->id}}">{{$course->title}}</option>
                         @empty
