@@ -52,7 +52,6 @@ class Video extends Model
       $url = parse_url($this->url, PHP_URL_HOST);
       $url = str_replace('www.','', $url);
       $url = explode('.', $url)[0];
-      if ($url == 'youtu') $url = 'youtube';
       return $url;
     }
 
@@ -61,6 +60,11 @@ class Video extends Model
         case 'youtube':
           parse_str(parse_url($this->url, PHP_URL_QUERY), $query);
           return $query['v'];
+        break;
+        case 'youtu':
+          $path = parse_url($this->url, PHP_URL_PATH);
+          $path = str_replace('/', '', $path);
+          return $path;
         break;
         case 'vimeo':
           $path = parse_url($this->url, PHP_URL_PATH);
@@ -73,6 +77,7 @@ class Video extends Model
     public function getVideoThumbnailUrl(){
       switch($this->getVideoHost()){
         case 'youtube':
+        case 'youtu':
           return "https://i1.ytimg.com/vi/".$this->getVideoId()."/hqdefault.jpg";
         break;
         case 'vimeo':
