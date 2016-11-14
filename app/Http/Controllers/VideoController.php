@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Course;
 use App\Module;
+use App\ModuleVideo;
 use App\Video;
 use App\VideoComment;
 use Auth;
@@ -124,8 +126,26 @@ class VideoController extends Controller
     return redirect()->back();
   }
 
-  public function search($term) {
+  public function search(Request $request, $term) {
     $results = Video::search($term);
+    if($request->has('scope'))
+    {
+      $scope = $request->input('scope');
+      $parts = explode(':', $scope);
+      switch ($parts[0]) {
+        case 'course':
+          $course = Course::where('slug', $parts[1])->firstOrFail();
+          $course->load('modules.videos');
+
+          $results =
+          break;
+        case 'module':
+          $module = Module::where('slug', $parts[1])->firstOrFail();
+          $link = ModuleVideo::where('module_id',$module->id);
+          $results =
+          break;
+      }
+    } else
     return view('video.searchresults', ['videos' => $results->get()]);
   }
 }

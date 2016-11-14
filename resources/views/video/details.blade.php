@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title'){{$video->title}}@endsection
+
 @section('adminactions')
   <li><a href="{{url("/videos/{$video->slug}/edit")}}">Edit Video</a></li>
 @endsection

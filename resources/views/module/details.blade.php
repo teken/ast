@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title'){{$module->title}}@endsection
+
 @section('adminactions')
   <li><a href="{{url('/modules/'.$module->slug.'/edit')}}">Edit Module</a></li>
 @endsection

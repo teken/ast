@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title'){{$course->title}}@endsection
+
 @section('adminactions')
   <li><a href="{{url('/courses/'.$course->slug.'/edit')}}">Edit Course</a></li>
 @endsection
