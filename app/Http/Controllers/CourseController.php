@@ -77,7 +77,7 @@ class CourseController extends Controller
       $course = Course::where('slug', $slug)->firstOrFail();
       $user = Auth::user();
       $course->delete();
-      return redirect()->back();
+      return redirect()->action('CourseController@index');
     }
 
     public function subscribe(Request $request, $slug) {

@@ -71,6 +71,6 @@ class ModuleController extends Controller
     $module = Module::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
     $module->delete();
-    return redirect()->back();
+    return redirect()->action('ModuleController@index');
   }
 }
