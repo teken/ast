@@ -52,6 +52,7 @@ class Video extends Model
       $url = parse_url($this->url, PHP_URL_HOST);
       $url = str_replace('www.','', $url);
       $url = explode('.', $url)[0];
+      if ($url == 'youtu') $url = 'youtube';
       return $url;
     }
 
