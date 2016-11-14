@@ -2,7 +2,7 @@
 
 @section('content')
   @if($videos->count() > 0)
-    <div class="videos gallery">
+    <div class="videos gallery grid">
       @each('video.box', $videos, 'video')
     </div>
   @else

@@ -24,7 +24,9 @@
       </div>
       <div class="sub title">Videos in Module</div>
       <div class="videos gallery">
-        @each('video.box', $module->videos()->get(), 'video')
+        <div class="videos boxes">
+          @each('video.box', $module->videos()->get(), 'video')
+        </div>
       </div>
     </div>
 @endsection
