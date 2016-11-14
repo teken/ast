@@ -67,7 +67,10 @@ class ModuleController extends Controller
     return redirect()->action('ModuleController@index');
   }
 
-  public function delete(Request $request, $slug) {
-    Module::where('slug', $slug)->delete();
+  public function delete($slug) {
+    $module = Module::where('slug', $slug)->firstOrFail();
+    $user = Auth::user();
+    $module->delete();
+    return redirect()->back();
   }
 }

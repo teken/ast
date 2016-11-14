@@ -39,6 +39,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/users', 'UserController@index');
     Route::get('/users/{id}/promote', 'UserController@promote');
     Route::get('/users/{id}/demote', 'UserController@demote');
+
+    //comments
+    Route::get('/comments/{commentId}/delete', 'VideoController@deleteComment');
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -57,7 +60,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/videos/{slug}/unfavourite', 'VideoController@unfavourite');
 
     Route::put('/videos/{slug}/comment', 'VideoController@comment');
-    Route::get('/comments/{commentId}/delete', 'VideoController@deleteComment');
 });
 
 //resources

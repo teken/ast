@@ -85,8 +85,11 @@ class VideoController extends Controller
     return redirect()->action('VideoController@details', ['slug' => $video->slug]);
   }
 
-  public function delete() {
-
+  public function delete($slug) {
+    $video = Video::where('slug', $slug)->firstOrFail();
+    $user = Auth::user();
+    if ($user->id == $video->user_id || $user->administrator) $video->delete();
+    return redirect()->back();
   }
 
   public function favourites(Request $request) {

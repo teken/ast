@@ -73,8 +73,11 @@ class CourseController extends Controller
       return redirect()->action('CourseController@index');
     }
 
-    public function delete(Request $request, $slug) {
-      Course::where('slug', $slug)->delete();
+    public function delete($slug) {
+      $course = Course::where('slug', $slug)->firstOrFail();
+      $user = Auth::user();
+      $course->delete();
+      return redirect()->back();
     }
 
     public function subscribe(Request $request, $slug) {
