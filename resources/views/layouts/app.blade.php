@@ -17,8 +17,9 @@
         ]); ?>
 
         function search(){
-          let scope = @hasSection('searchscope')"?scope=@yield('searchscope')"@else""@endif;
-          window.location.href = "{{url('/search')}}/"+$('input[type="search"]').val()+encodeURIComponent(scope);
+          let scope = @hasSection('searchscope')@yield('searchscope')@else""@endif;
+          if (scope.length > 0) scope = "?scope="+encodeURIComponent(scope);
+          window.location.href = "{{url('/search')}}/"+$('input[type="search"]').val()+scope;
         }
     </script>
 </head>
