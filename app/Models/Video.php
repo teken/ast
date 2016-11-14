@@ -2,14 +2,17 @@
 
 namespace App;
 
+use Sofa\Eloquence\Eloquence;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Video extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Eloquence;
 
     protected $table = 'videos';
+
+    protected $searchableColumns = ['title', 'description', 'tags'];
 
     protected $fillable = [
         'user_id', 'url', 'title', 'description', 'tags', 'slug'

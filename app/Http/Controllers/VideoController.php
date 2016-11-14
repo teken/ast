@@ -110,4 +110,9 @@ class VideoController extends Controller
     $comment->save();
     return redirect()->action('VideoController@details', ['slug' => $slug]);
   }
+
+  public function search($term) {
+    $results = Video::search($term);
+    return view('video.searchresults', ['videos' => $results->get()]);    
+  }
 }

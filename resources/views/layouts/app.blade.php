@@ -15,6 +15,10 @@
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
+
+        function search(){
+          window.location.href = "{{url('/search/')}}"+$('input[type="search"]').val();
+        }
     </script>
 </head>
 <body>
@@ -35,7 +39,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav">
                   <li class="search">
-                    <input type="text" placeholder="Search..." />
+                    <input type="search" placeholder="Search..." onsearch="search()" />
                   </li>
                   @if (!Auth::guest())
                     @if (Auth::user()->administrator)
