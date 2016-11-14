@@ -11,7 +11,7 @@ class UserController extends Controller
 {
       public function index() {
         $users = User::get();
-        return view('user.index', $users);
+        return view('user.index', ['users'=>$users]);
       }
 
       public function promote($id){
