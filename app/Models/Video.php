@@ -45,8 +45,8 @@ class Video extends Model
     }
 
     public function favourites() {
-      return $this->hasMany('App\User');
-       //return $this->belongsToMany('App\User', 'userfavorites');
+      //return $this->hasMany('App\User');
+      return $this->belongsToMany('App\User', 'userfavorites');
     }
 
     public function getVideoHost(){
