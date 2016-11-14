@@ -20,13 +20,7 @@ class VideoController extends Controller
     $videos = Video::orderBy('created_at', 'desc')->get();
     return view('video.index', ['videos' => $videos]);
   }
-
-  public function index(Request $request)
-  {
-    $videos = Video::get();
-    return view('video.index', ['videos' => $videos]);
-  }
-
+    
   public function user(Request $request) {
     $user = Auth::user();
     $user->load('videos');

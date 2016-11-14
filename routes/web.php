@@ -71,5 +71,4 @@ Route::get('/courses/{slug}', 'CourseController@details');
 Route::get('/modules', 'ModuleController@index');
 Route::get('/modules/{slug}', 'ModuleController@details');
 
-Route::get('/videos', 'VideoController@index');
 Route::get('/videos/{slug}', 'VideoController@details');
