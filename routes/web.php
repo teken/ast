@@ -12,7 +12,7 @@
 */
 
 //home
-Route::get('/', 'HomeController@index');
+Route::get('/', 'VideoController@home');
 Route::get('/home', function () { return  redirect('/'); });
 Route::get('/search/{term}', 'VideoController@search');
 

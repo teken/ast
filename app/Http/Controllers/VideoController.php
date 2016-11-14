@@ -12,6 +12,12 @@ use Auth;
 
 class VideoController extends Controller
 {
+  public function home()
+  {
+    $videos = Video::get();
+    return view('video.index', ['videos' => $videos]);
+  }
+
   public function index(Request $request)
   {
     $videos = Video::get();
@@ -113,6 +119,6 @@ class VideoController extends Controller
 
   public function search($term) {
     $results = Video::search($term);
-    return view('video.searchresults', ['videos' => $results->get()]);    
+    return view('video.searchresults', ['videos' => $results->get()]);
   }
 }
