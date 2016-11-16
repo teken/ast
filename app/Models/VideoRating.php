@@ -12,6 +12,8 @@ class VideoRating extends Model
         'user_id', 'video_id', 'rating'
     ];
 
+    public $timestamps = false;
+
     public function video() {
        return $this->belongsTo('App\Video', 'video_id');
     }
