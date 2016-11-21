@@ -123,6 +123,10 @@
             axis:'x',
             theme: 'light-thick'
           });
+          $('body').mCustomScrollbar({
+            axis:'y',
+            theme: 'light-thick'
+          });
         });
       })(jQuery);
     </script>
