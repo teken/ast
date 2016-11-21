@@ -18,9 +18,6 @@ nav.navbar {
   width: 100%;
 }
 
-//grids
-
-
 //galleries
 .gallery {
   max-width: 100%;
@@ -95,7 +92,18 @@ nav.navbar {
   }
 }
 
-//admin toolbar#
+//comments
+.comment {
+  position: relative;
+
+  .action {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+//admin toolbar
 .admin.toolbar {
   position: fixed;
   width: inherit;
