@@ -15,7 +15,7 @@
     @yield('styles')
 
     <script>
-        window.Laravel = {{json_encode(['csrfToken' => csrf_token()])}}
+        window.Laravel = {!!json_encode(['csrfToken' => csrf_token()])!!}
     </script>
 </head>
 <body>
