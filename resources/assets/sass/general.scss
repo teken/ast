@@ -20,7 +20,7 @@ nav.navbar {
 
 .navbar-toggle {
   &.collapsed .icon-bar {
-    transition: max-width, transform;
+    transition: all 1s linear;
     transform: rotate(0deg);
     max-width: 25px;
   }
@@ -28,18 +28,15 @@ nav.navbar {
     &:nth-child(2){
         transform: rotate(33deg);
         transform-origin: left;
-        transition: max-width, transform;
     }
 
     &:nth-child(3){
       max-width: 0;
-      transition: max-width, transform;
     }
 
     &:nth-child(4){
       transform: rotate(-33deg);
       transform-origin: left;
-      transition: max-width, transform;
     }
   }
 }
