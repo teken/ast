@@ -114,3 +114,18 @@ nav.navbar {
     pointer-events: all;
   }
 }
+
+//buttons
+.btn, .navbar-toggle {
+  border-radius: 0;
+}
+
+//panels
+.panel {
+  border-radius: 0;
+}
+
+//form-controls
+.form-control {
+  border-radius: 0;
+}
