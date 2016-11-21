@@ -116,8 +116,17 @@ nav.navbar {
 }
 
 //buttons
-.btn, .navbar-toggle {
+.btn {
   border-radius: 0;
+}
+
+.navbar-toggle {
+  border-radius: 0;
+  border: none;
+
+  &:hover {
+    background-color: transparent !important;
+  }
 }
 
 //panels

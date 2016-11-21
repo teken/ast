@@ -48,4 +48,9 @@ nav.navbar {
 
 .panel {
   color: $font-secondary-colour;
+
+  .panel-header {
+    background-color: $primary-colour;
+    color: $font-primary-colour;
+  }
 }
