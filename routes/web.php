@@ -21,7 +21,7 @@ Route::get('/search/{term}', 'VideoController@search');
 //auth
 Auth::routes();
 
-//admin
+//admin middleware group
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin', 'AdministratorController@index');
 
@@ -44,6 +44,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/comments/{commentId}/delete', 'VideoController@deleteComment');
 });
 
+//auth middleware group
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/courses/subscriptions', 'CourseController@user');
     Route::get('/courses/{slug}/subscribe', 'CourseController@subscribe');

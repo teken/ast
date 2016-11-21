@@ -14,38 +14,60 @@ use App\VideoComment;
 use App\VideoRating;
 use Auth;
 
+/**
+ * Controller that contains actions relating to the videos
+ */
 class VideoController extends Controller
 {
+  /**
+  * returns the video index view with all videos order by decending order using the 'created_at' date.
+  */
   public function home()
   {
     $videos = Video::orderBy('created_at', 'desc')->get();
     return view('video.index', ['videos' => $videos]);
   }
 
+  /**
+  * returns the video index view with all videos order by decending order using the 'created_at' date.
+  * Also eager loads users videos
+  */
   public function user(Request $request) {
     $user = Auth::user();
     $user->load('videos');
     return view('video.my', ['videos' => $user->videos()->get()]);
   }
 
+  /**
+  * returns the video details view for a specific video.
+  */
   public function details(Request $request, $slug)
   {
     $video = Video::with('comments')->where('slug', $slug)->firstOrFail();
     return view('video.details', ['video' => $video]);
   }
 
+  /**
+  * returns the video edit view with a blank video.
+  */
   public function new() {
     $video = new Video();
     $modules = Module::get();
     return view('video.edit', ['video' => $video, 'modules' => $modules, 'method' => 'PUT']);
   }
 
+  /**
+  * returns the video edit view with a specific video.
+  */
   public function edit($slug) {
     $video = Video::where('slug', $slug)->firstOrFail();
     $modules = Module::get();
     return view('video.edit', ['video' => $video, 'modules' => $modules, 'method' => 'POST']);
   }
 
+  /**
+  * saves either new or edit video and redirects to the index action
+  */
   public function store(Request $request, $slug = null) {
     $video;
     if ($request->isMethod('post')) {
@@ -80,6 +102,9 @@ class VideoController extends Controller
     return redirect()->action('VideoController@details', ['slug' => $video->slug]);
   }
 
+  /**
+  * Deletes a specific video and redirects to the index action
+  */
   public function delete($slug) {
     $video = Video::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
@@ -87,12 +112,18 @@ class VideoController extends Controller
     return redirect()->action('VideoController@user');
   }
 
+  /**
+   * returns the currents users favourites on the video favourites view.
+   */
   public function favourites(Request $request) {
     $user = Auth::user();
     $user->load('favourites');
     return view('video.favourites', ['videos' => $user->favourites()->get()]);
   }
 
+  /**
+   * Favourites a video for the current user, then redircts back to the previous URl
+   */
   public function favourite(Request $request, $slug) {
     $video = Video::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
@@ -100,6 +131,9 @@ class VideoController extends Controller
     return redirect()->back();
   }
 
+  /**
+   * Unfavourites a video for the current user, then redircts back to the previous URl
+   */
   public function unfavourite(Request $request, $slug) {
     $video = Video::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
@@ -107,6 +141,9 @@ class VideoController extends Controller
     return redirect()->back();
   }
 
+  /**
+   * Creates a new video comment for a specified video
+   */
   public function comment(Request $request, $slug) {
     $video = Video::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
@@ -118,13 +155,19 @@ class VideoController extends Controller
     return redirect()->back();
   }
 
+  /**
+   * Deletes a video comment for a specified video
+   */
   public function deleteComment(Request $request, $id) {
     $comment = VideoComment::findorFail($id);
     $user = Auth::user();
-    if ($user->id == $comment->user_id || $user->administrator) $comment->delete();
+    if ($user->administrator) $comment->delete();
     return redirect()->back();
   }
 
+  /**
+   * Searches for videos using a specific term, and in a specific scope of scope if scope is provided.
+   */
   public function search(Request $request, $term) {
     $results = Video::search($term);
     if($request->has('scope'))
@@ -148,6 +191,10 @@ class VideoController extends Controller
     return view('video.searchresults', ['videos' => $results->get()]);
   }
 
+
+  /**
+   * Rates a specific video as good.
+   */
   public function rateGood(Request $request, $slug) {
     $video = Video::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
@@ -155,6 +202,9 @@ class VideoController extends Controller
     return redirect()->back();
   }
 
+  /**
+   * Rates a specific video as bad.
+   */
   public function rateBad(Request $request, $slug) {
     $video = Video::where('slug', $slug)->firstOrFail();
     $user = Auth::user();
@@ -162,6 +212,9 @@ class VideoController extends Controller
     return redirect()->back();
   }
 
+  /**
+   * Rates a specific video as value provided. Powers the rateGood and rateBad functions.
+   */
   private function rate($video_id, $user_id, $rate)
   {
     $rating = VideoRating::where([['user_id','=',$user_id],['video_id', '=', $video_id]])->first();

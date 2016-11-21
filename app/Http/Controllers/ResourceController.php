@@ -6,8 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Leafo\ScssPhp\Compiler;
 
+/**
+ * Controller that contains actions relating to the site resources
+ */
 class ResourceController extends Controller
 {
+  /**
+   * Compiles and returns the CSS from SCSS files located in 'resources/assets/sass/' using the app.scss as the main file
+   */
   public function css() {
     $css;
     $scss = new Compiler();
