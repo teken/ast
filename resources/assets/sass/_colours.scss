@@ -28,6 +28,12 @@ a:hover, a:active {
 nav.navbar {
   background-color: $primary-colour;
 
+  .navbar-toggle,
+  .navbar-toggle:hover
+  .navbar-toggle:focus {
+    background-color: transparent !important;
+  }
+
   .icon-bar {
     background-color: $font-primary-colour !important;
   }
