@@ -9,7 +9,7 @@
 
 @section('searchscope')course:{{$course->slug}}@endsection
 
-@section('searchtext'){{$course->slug}}@endsection
+@section('searchtext'){{$course->title}}@endsection
 
 @section('content')
     <div class="course details">

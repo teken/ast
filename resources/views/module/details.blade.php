@@ -9,7 +9,7 @@
 
 @section('searchscope')module:{{$module->slug}}@endsection
 
-@section('searchtext'){{$module->slug}}@endsection
+@section('searchtext'){{$module->title}}@endsection
 
 @section('content')
     <div class="module details">
