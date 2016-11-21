@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav">
                   <li class="search">
-                    <input type="search" placeholder="Search..." onsearch="search()" />
+                    <input type="search" placeholder="Search@hasSection('searchtext') in @yield('searchtext')@endif..." onsearch="search()" />
                   </li>
                   @if (!Auth::guest())
                     <li class="separator"></li>
