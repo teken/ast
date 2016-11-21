@@ -29,7 +29,7 @@ nav.navbar {
   background-color: $primary-colour;
 
   .icon-bar {
-    background-color: $primary-colour;
+    background-color: $font-primary-colour !important;
   }
 
   .navbar-brand,
