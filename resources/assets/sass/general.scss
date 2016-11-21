@@ -7,10 +7,10 @@ nav.navbar {
 .search input {
   width: 100%;
   line-height: 34px;
-  background-color: transparent;
   border: none;
   padding-left: 15px;
-  border-bottom: solid 1px;
+  padding-right: 15px;
+  outline: 0 none;
 }
 
 .navbar .separator {

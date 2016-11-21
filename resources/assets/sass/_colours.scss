@@ -34,7 +34,20 @@ nav.navbar {
   }
 
   .search input {
-    //border-color: $font-primary-colour;
+    background-color: transparent;
+
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: $font-primary-colour;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: $font-primary-colour;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: $font-primary-colour;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: $font-primary-colour;
+    }
   }
 }
 
