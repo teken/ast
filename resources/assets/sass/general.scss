@@ -25,6 +25,8 @@ nav.navbar {
     max-width: 25px;
   }
   &:not(.collapsed) .icon-bar {
+    transition: all 1s linear;
+
     &:nth-child(2){
         transform: rotate(33deg);
         transform-origin: left;
