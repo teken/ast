@@ -20,12 +20,12 @@ nav.navbar {
 
 .navbar-toggle {
   &.collapsed .icon-bar {
-    transition: all 1s linear;
+    transition: all 0.25s linear;
     transform: rotate(0deg);
     max-width: 25px;
   }
   &:not(.collapsed) .icon-bar {
-    transition: all 1s linear;
+    transition: all 0.25s linear;
 
     &:nth-child(2){
         transform: rotate(33deg);
