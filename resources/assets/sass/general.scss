@@ -150,8 +150,6 @@ nav.navbar {
 
   .dropdown-toggle {
     border: none;
-    background-color: $primary-colour;
-    color: $font-primary-colour;
   }
 }
 
@@ -178,4 +176,9 @@ nav.navbar {
 //dropdowns
 .dropdown-menu {
   border-radius: 0;
+}
+
+//comment
+.comment .actions .dropdown-toggle {
+  border: none;
 }

@@ -82,7 +82,8 @@ nav.navbar {
   }
 }
 
-.admin.toolbar .dropdown-toggle {
+.admin.toolbar .dropdown-toggle,
+.comment .dropdown-toggle {
   background-color: $primary-colour;
   color: $font-primary-colour;
 }

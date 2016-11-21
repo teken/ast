@@ -4,7 +4,7 @@
   <div class="actions pull-right">
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="glyphicon glyphicon-cog"></i><span class="caret"></span>
+        <i class="glyphicon glyphicon-cog"></i>
       </button>
       <ul class="dropdown-menu">
         @if(!Auth::guest() and Auth::user()->administrator)
