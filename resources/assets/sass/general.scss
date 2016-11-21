@@ -132,6 +132,11 @@ nav.navbar {
 //panels
 .panel {
   border-radius: 0;
+  border: none;
+
+  .panel-heading {
+    border-radius: 0;
+  }
 }
 
 //form-controls
