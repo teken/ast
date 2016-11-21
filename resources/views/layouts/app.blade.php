@@ -11,6 +11,7 @@
     </title>
 
     <link href="/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css" />
     @yield('styles')
 
     <script>
@@ -108,12 +109,22 @@
     </div>
     <script src="/js/app.js"></script>
     @yield('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <script>
       function search(){
         let scope = @hasSection('searchscope')"@yield('searchscope')"@else""@endif;
         if (scope.length > 0) scope = "?scope="+encodeURIComponent(scope);
         window.location.href = "{{url('/search')}}/"+$('input[type="search"]').val()+scope;
       }
+
+      (function(){
+        $(window).on('load', function(){
+          $('.gallery:not(.grid)').mCustomScrollbar({
+            axis:'x',
+            theme: 'light-thick'
+          });
+        });
+      })(jQuery);
     </script>
 </body>
 </html>
