@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * The data model for the courses database table
+ */
 class Course extends Model
 {
     protected $table = 'courses';
@@ -14,16 +17,17 @@ class Course extends Model
 
     protected $dates = ['created_at', 'updated_at'];
 
+    /**
+     * defines the relationship between courses and modules using the mapping table coursemodules
+     */
     public function modules() {
        return $this->belongsToMany('App\Module', 'coursemodules');
     }
 
+    /**
+     * defines the relationship between courses and users using the mapping table usercourses
+     */
     public function users() {
        return $this->belongsToMany('App\User', 'usercourses');
     }
-
-    //TODO figure out the cals and things
-    /*public function topVideos(){
-      return $this->hasManyThrough('App\Video', 'App\Module', 'module_id', 'video_id', 'id' )->sortByDesc('rating');
-    }*/
 }
