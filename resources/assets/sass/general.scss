@@ -18,6 +18,31 @@ nav.navbar {
   width: 100%;
 }
 
+.navbar-toggle {
+  &.collapsed .icon-bar {
+    transition: max-width, transform;
+    max-width: 25px;
+  }
+  .icon-bar {
+    &:nth-child(1){
+        transform: rotate(33deg);
+        transform-origin: left;
+        transition: max-width, transform;
+    }
+
+    &:nth-child(2){
+      max-width: 0;
+      transition: max-width, transform;
+    }
+
+    &:nth-child(3){
+      transform: rotate(-33deg);
+      transform-origin: left;
+      transition: max-width, transform;
+    }
+  }
+}
+
 //galleries
 .gallery {
   max-width: 100%;
