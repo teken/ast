@@ -9,6 +9,8 @@
 
 @section('searchscope')module:{{$module->slug}}@endsection
 
+@section('searchtext'){{$module->slug}}@endsection
+
 @section('content')
     <div class="module details">
       <div class="title">{{$module->title}}</div>
