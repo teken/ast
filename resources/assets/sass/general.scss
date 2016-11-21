@@ -24,6 +24,7 @@ body > .container {
 .gallery {
   max-width: 100%;
   height: 235px;
+  display: flex;
 
   &:not(.grid) {
       overflow-x: auto;
