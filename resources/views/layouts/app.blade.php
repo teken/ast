@@ -81,7 +81,7 @@
             <div class="row admin toolbar">
               <div class="btn-group pull-right">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="glyphicon glyphicon-cog"></i><span class="caret"></span>
+                  <i class="glyphicon glyphicon-cog"></i>
                 </button>
                 <ul class="dropdown-menu">
                   @yield('adminactions')

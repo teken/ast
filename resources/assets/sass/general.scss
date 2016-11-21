@@ -147,6 +147,12 @@ nav.navbar {
   .btn-group {
     pointer-events: all;
   }
+
+  .dropdown-toggle {
+    border: none;
+    background-color: $primary-colour;
+    color: $font-primary-colour;
+  }
 }
 
 //buttons
@@ -166,5 +172,10 @@ nav.navbar {
 
 //form-controls
 .form-control {
+  border-radius: 0;
+}
+
+//dropdowns
+.dropdown-menu {
   border-radius: 0;
 }
