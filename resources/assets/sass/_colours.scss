@@ -43,6 +43,10 @@ nav.navbar {
     color: $font-primary-colour;
   }
 
+  .navbar-nav > li > a:hover {
+    color: $font-primary-colour !important;
+  }
+
   .search input {
     background-color: transparent;
 
