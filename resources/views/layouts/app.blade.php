@@ -41,6 +41,7 @@
                     <input type="search" placeholder="Search..." onsearch="search()" />
                   </li>
                   @if (!Auth::guest())
+                    <li class="separator"></li>
                     @if (Auth::user()->administrator)
                         <li>
                             <a href="{{ url('/admin') }}">
