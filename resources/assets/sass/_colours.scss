@@ -28,6 +28,10 @@ a:hover, a:active {
 nav.navbar {
   background-color: $primary-colour;
 
+  .icon-bar {
+    background-color: $primary-colour;
+  }
+
   .navbar-brand,
   .navbar-nav > li > a {
     color: $font-primary-colour;
