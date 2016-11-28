@@ -19,7 +19,7 @@
     <div class="player wrapper">
       <div data-type="{{$video->getVideoHost()}}" data-video-id="{{$video->getVideoId()}}"></div>
     </div>
-    <div class="details">
+    <div class="details clearfix">
       <div class="title">
         <a href="{{$video->url}}" target="_blank">{{$video->title}}</a>
       </div>
