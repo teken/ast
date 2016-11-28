@@ -17,14 +17,14 @@
       <div class="description">{{$module->description}}</div>
 
       <div class="courses">
-        <div class="sub title">Courses Module Is In</div>
+        <div class="sub title">Courses</div>
         <ul>
             @foreach($module->courses()->get() as $course)
                 <li><a href="{{url('/courses/'.$course->slug)}}">{{$course->title}}</a></li>
             @endforeach
         </ul>
       </div>
-      <div class="sub title">Videos in Module</div>
+      <div class="sub title">Videos</div>
       <div class="videos gallery">
         <div class="videos boxes">
           @each('video.box', $module->videos()->get(), 'video')

@@ -24,7 +24,7 @@
           @endif
         @endif
       </div>
-      <div class="sub title">Modules in Course</div>
+      <div class="sub title">Modules</div>
       @include('video.bymodule', ['modules' => $course->modules()->get()])
     </div>
 @endsection
