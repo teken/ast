@@ -84,7 +84,10 @@ nav.navbar {
 
 .admin.toolbar .dropdown-toggle,
 .comment .dropdown-toggle,
-.btn-primary {
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
   background-color: $primary-colour;
   color: $font-primary-colour;
 }

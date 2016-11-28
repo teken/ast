@@ -167,6 +167,17 @@ ul {
   border-radius: 0;
 }
 
+.btn-primary {
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  text-decoration: underline;
+  
+}
+
 //panels
 .panel {
   border-radius: 0;
