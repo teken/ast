@@ -58,7 +58,7 @@
               <textarea type="text" name="comment" placeholder="Comment..." class="form-control"></textarea>
             </div>
             <div class="form-group pull-right">
-              <input class="btn btn-default" type="submit" value="Submit Comment"/>
+              <input class="btn btn-primary" type="submit" value="Submit Comment"/>
             </div>
           </form>
         @else

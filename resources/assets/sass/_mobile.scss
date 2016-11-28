@@ -11,4 +11,15 @@
   ul {
     padding-left: 0;
   }
+
+  .video.details {
+    input[type=submit] {
+      width: calc(100vw - 30px);
+    }
+
+    .ratings,
+    .actions {
+      float: none !important;
+    }
+  }
 }
