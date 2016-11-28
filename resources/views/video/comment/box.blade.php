@@ -1,6 +1,8 @@
 <div class="comment">
-  <div class="name">{{$comment->user()->first()->name()}}</div>
-  <div class="text">{{$comment->comment}}</div>
+  <blockquote>
+  <p class="text">{{$comment->comment}}</p>
+  <footer class="name">{{$comment->user()->first()->name()}}</footer>
+  <blockquote>
   <div class="actions pull-right">
     @if(!Auth::guest() and Auth::user()->administrator)
     <div class="btn-group dropup">
