@@ -29,7 +29,7 @@
                           $currentIds = $course->modules()->get()->pluck('id');
                         ?>
                         @forelse($modules as $module)
-                          <option value="{{$module->id}}" @if($currentIds->contains($module->id)) checked @endif>{{$module->title}}</option>
+                          <option value="{{$module->id}}" @if($currentIds->contains($module->id)) selected @endif>{{$module->title}}</option>
                         @empty
                           <option>Sorry there are no modules that i can find.</option>
                         @endforelse
