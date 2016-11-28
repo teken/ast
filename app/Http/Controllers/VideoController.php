@@ -28,7 +28,7 @@ class VideoController extends Controller
     if (!Auth::guest()) {
       $user = Auth::user();
       $user->load('courses.modules.videos');
-      $subscriptions = $user->courses()->pluck('modules')->pluck('videos')->orderBy('created_at', 'desc')->get();
+      $subscriptions = $user->courses()->get()->pluck('modules')->pluck('videos')->orderBy('created_at', 'desc')->get();
     }
     $videos = Video::orderBy('created_at', 'desc')->get();
     return view('video.index', ['videos' => $videos, 'subscriptions' => $subscriptions]);
