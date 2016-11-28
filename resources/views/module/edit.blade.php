@@ -25,8 +25,11 @@
                     </div>
                     <div class="form-group" class="form-group">
                       <select class="form-control" multiple name="courseids[]">
+                        <?php
+                          $currentIds = $module->courses()->get()->pluck('id');
+                        ?>
                         @forelse($courses as $course)
-                          <option value="{{$course->id}}">{{$course->title}}</option>
+                          <option value="{{$course->id}}" @if($currentIds->contains($course->id)) selected @endif>{{$course->title}}</option>
                         @empty
                           <option>Sorry there are no courses that i can find.</option>
                         @endforelse

@@ -30,8 +30,11 @@
                     </div>
                     <div class="form-group">
                       <select class="form-control" multiple name="moduleids[]">
+                        <?php
+                          $currentIds = $video->modules()->get()->pluck('id');
+                        ?>
                         @forelse($modules as $module)
-                          <option value="{{$module->id}}">{{$module->title}}</option>
+                          <option value="{{$module->id}}"  @if($currentIds->contains($module->id)) selected @endif>{{$module->title}}</option>
                         @empty
                           <option>Sorry there are no modules that i can find.</option>
                         @endforelse
