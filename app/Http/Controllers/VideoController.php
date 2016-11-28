@@ -29,7 +29,7 @@ class VideoController extends Controller
       $user = Auth::user();
       $user->load('courses.modules.videos');
       dump($user->courses()->get());
-      dump($user->courses()->get()->pluck('modules'));
+      dump($user->courses()->get()->pluck('modules')->get());
       dump($user->courses()->get()->pluck('modules')->pluck('videos'));
       $subscriptions = $user->courses()->get()->pluck('modules')->pluck('videos')->sortByDesc('created_at', function($col, $key){return $col->created_at;})->forPage(1,9)->get();
     }
