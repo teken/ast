@@ -175,7 +175,7 @@ ul {
 .btn-primary:active,
 .btn-primary:focus {
   text-decoration: underline;
-  outline: none;
+  outline: none !important;
 }
 
 //panels
