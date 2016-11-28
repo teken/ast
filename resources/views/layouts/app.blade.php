@@ -7,6 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta name="description" content="{{ config('app.description', '') }}">
+    <meta name="keywords" content="{{ config('app.keywords', '') }}">
+    <meta name="author" content="{{ config('app.author', '') }}">
 
     <title>
       @hasSection('title')@yield('title') - @endif{{ config('app.title', 'Laravel') }}

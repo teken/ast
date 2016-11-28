@@ -18,6 +18,10 @@ return [
 
     'description' => 'OLV is a crowd based application that allows for the curation of online learning videos.',
 
+    'keywords' => 'Online Video Learning Repository,online,video,learning,repository',
+
+    'author' => 'Duncan Haig, M2010336'
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
