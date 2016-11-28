@@ -60,11 +60,11 @@ ul {
 //galleries
 .gallery {
   max-width: 100%;
-  height: 235px;
 
   &:not(.grid) {
     overflow-x: auto;
     display: flex;
+    height: 235px;
   }
 
   .title {
