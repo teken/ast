@@ -88,6 +88,6 @@ nav.navbar {
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:focus {
-  background-color: $primary-colour;
-  color: $font-primary-colour;
+  background-color: $primary-colour !important;
+  color: $font-primary-colour !important;
 }
