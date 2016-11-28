@@ -25,6 +25,9 @@
                     </div>
                     <div class="form-group">
                       <select class="form-control" multiple name="moduleids[]">
+                        <?php
+                          $currentModules = $course->modules()->get();
+                        ?>
                         @forelse($modules as $module)
                           <option value="{{$module->id}}" @if($course->modules()->contains($module)) checked @endif>{{$module->title}}</option>
                         @empty
