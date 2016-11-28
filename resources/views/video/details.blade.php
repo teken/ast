@@ -33,9 +33,9 @@
           <div class="actions pull-right">
             @if(!Auth::guest())
               @if(Auth::user()->favourites()->pluck('video_id')->contains($video->id))
-                <a class="btn btn-default unfavourite" href="{{url("/videos/{$video->slug}/unfavourite")}}">Unfavourite</a>
+                <a class="btn btn-primary unfavourite" href="{{url("/videos/{$video->slug}/unfavourite")}}">Unfavourite</a>
               @else
-                <a class="btn btn-default favourite" href="{{url("/videos/{$video->slug}/favourite")}}">Favourite</a>
+                <a class="btn btn-primary favourite" href="{{url("/videos/{$video->slug}/favourite")}}">Favourite</a>
               @endif
             @endif
           </div>
