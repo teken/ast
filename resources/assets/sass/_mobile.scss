@@ -14,7 +14,7 @@
 
   .video.details {
     input[type=submit] {
-      width: calc(100vw - 30px);
+      width: calc(100vw - 60px); //removing 4 set of margins
     }
 
     .rating,
