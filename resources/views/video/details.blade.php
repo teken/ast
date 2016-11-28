@@ -50,20 +50,24 @@
     </div>
     <div class="comments">
       <div class="new clearfix">
-        @if(!Auth::guest())
-          <form action="{{url("/videos/{$video->slug}/comment")}}" method="POST">
-            {!! csrf_field() !!}
-            {!! method_field('PUT') !!}
-            <div class="form-group">
-              <textarea type="text" name="comment" placeholder="Comment..." class="form-control"></textarea>
-            </div>
-            <div class="form-group pull-right">
-              <input class="btn btn-primary" type="submit" value="Submit Comment"/>
-            </div>
-          </form>
-        @else
-          <textarea type="text" name="comment" placeholder="Please sign to in to comment." class="form-control" disabled></textarea>
-        @endif
+        <div class="panel panel-default">
+          <div class="panel-body">
+            @if(!Auth::guest())
+              <form action="{{url("/videos/{$video->slug}/comment")}}" method="POST">
+                {!! csrf_field() !!}
+                {!! method_field('PUT') !!}
+                <div class="form-group">
+                  <textarea type="text" name="comment" placeholder="Comment..." class="form-control"></textarea>
+                </div>
+                <div class="form-group pull-right">
+                  <input class="btn btn-primary" type="submit" value="Submit Comment"/>
+                </div>
+              </form>
+            @else
+              <textarea type="text" name="comment" placeholder="Please sign to in to comment." class="form-control" disabled></textarea>
+            @endif
+          </div>
+        </div>
       </div>
       @each('video.comment.box', $video->comments()->orderBy('created_at', 'desc')->take(100)->get(), 'comment')
     </div>
