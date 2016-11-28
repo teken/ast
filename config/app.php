@@ -12,7 +12,11 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'MASTP',
+    'name' => 'OLV',
+
+    'title' => 'OLV (Online Video Learning Repository)',
+
+    'description' => 'OLV is a crowd based application that allows for the curation of online learning videos.',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,7 +181,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        
+
         Sofa\Eloquence\ServiceProvider::class
 
     ],
