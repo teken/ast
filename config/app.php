@@ -20,7 +20,7 @@ return [
 
     'keywords' => 'Online Video Learning Repository,online,video,learning,repository',
 
-    'author' => 'Duncan Haig, M2010336'
+    'author' => 'Duncan Haig, M2010336',
 
     /*
     |--------------------------------------------------------------------------
