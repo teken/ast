@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * The data model for the coursemodules database mapping table
  */
-class CourseModules extends Model
+class CourseModule extends Model
 {
     protected $table = 'coursemodules';
 
