@@ -183,7 +183,7 @@ class VideoController extends Controller
       switch ($parts[0]) {
         case 'course':
           $course = Course::where('slug', $parts[1])->firstOrFail();
-          $courseLinks = CourseModule::where('course_id', $course_id)->pluck('module_id');
+          $courseLinks = CourseModule::where('course_id', $course->id)->pluck('module_id');
           $moduleLinks = ModuleVideo::whereIn('module_id',$courseLinks)->pluck('video_id');
           $results = $results->whereIn('id', $moduleLinks);
           break;
